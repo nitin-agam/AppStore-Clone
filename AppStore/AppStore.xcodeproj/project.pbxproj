@@ -14,6 +14,13 @@
 		C7E0A9E92927B9B600FC7A38 /* TodayHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9E82927B9B600FC7A38 /* TodayHomeController.swift */; };
 		C7E0A9EC2927B9DC00FC7A38 /* AppsHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9EB2927B9DC00FC7A38 /* AppsHomeController.swift */; };
 		C7E0A9EE2927B9FE00FC7A38 /* SearchHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9ED2927B9FE00FC7A38 /* SearchHomeController.swift */; };
+		C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9EF2927C91100FC7A38 /* BaseCollectionCell.swift */; };
+		C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9F12927C95500FC7A38 /* SearchCollectionCell.swift */; };
+		C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9F42927CA8100FC7A38 /* UICollectionViewCell+Extension.swift */; };
+		C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9F62927CFEE00FC7A38 /* UICollectionView+Extension.swift */; };
+		C7E0A9FA2927D34700FC7A38 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C7E0A9F92927D34700FC7A38 /* SnapKit */; };
+		C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */; };
+		C7E0A9FF2927DD1A00FC7A38 /* VerticalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,12 @@
 		C7E0A9E82927B9B600FC7A38 /* TodayHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayHomeController.swift; sourceTree = "<group>"; };
 		C7E0A9EB2927B9DC00FC7A38 /* AppsHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHomeController.swift; sourceTree = "<group>"; };
 		C7E0A9ED2927B9FE00FC7A38 /* SearchHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeController.swift; sourceTree = "<group>"; };
+		C7E0A9EF2927C91100FC7A38 /* BaseCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCollectionCell.swift; sourceTree = "<group>"; };
+		C7E0A9F12927C95500FC7A38 /* SearchCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionCell.swift; sourceTree = "<group>"; };
+		C7E0A9F42927CA8100FC7A38 /* UICollectionViewCell+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionViewCell+Extension.swift"; sourceTree = "<group>"; };
+		C7E0A9F62927CFEE00FC7A38 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
+		C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
+		C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0A9FA2927D34700FC7A38 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +72,8 @@
 		C7E0A9CB2927AF1600FC7A38 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				C7E0A9FD2927DCF000FC7A38 /* Subclass */,
+				C7E0A9F32927C9E400FC7A38 /* Extension */,
 				C7E0A9E02927B8E900FC7A38 /* AppDelegate */,
 				C7E0A9E12927B90100FC7A38 /* Base */,
 				C7E0A9E22927B91000FC7A38 /* Module */,
@@ -80,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				C7E0A9E62927B98B00FC7A38 /* AppTabBarController.swift */,
+				C7E0A9EF2927C91100FC7A38 /* BaseCollectionCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -114,8 +131,27 @@
 			isa = PBXGroup;
 			children = (
 				C7E0A9ED2927B9FE00FC7A38 /* SearchHomeController.swift */,
+				C7E0A9F12927C95500FC7A38 /* SearchCollectionCell.swift */,
 			);
 			path = Search;
+			sourceTree = "<group>";
+		};
+		C7E0A9F32927C9E400FC7A38 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0A9F42927CA8100FC7A38 /* UICollectionViewCell+Extension.swift */,
+				C7E0A9F62927CFEE00FC7A38 /* UICollectionView+Extension.swift */,
+				C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		C7E0A9FD2927DCF000FC7A38 /* Subclass */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */,
+			);
+			path = Subclass;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,6 +170,9 @@
 			dependencies = (
 			);
 			name = AppStore;
+			packageProductDependencies = (
+				C7E0A9F92927D34700FC7A38 /* SnapKit */,
+			);
 			productName = AppStore;
 			productReference = C7E0A9C92927AF1600FC7A38 /* AppStore.app */;
 			productType = "com.apple.product-type.application";
@@ -162,6 +201,9 @@
 				Base,
 			);
 			mainGroup = C7E0A9C02927AF1600FC7A38;
+			packageReferences = (
+				C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = C7E0A9CA2927AF1600FC7A38 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -188,10 +230,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */,
 				C7E0A9EC2927B9DC00FC7A38 /* AppsHomeController.swift in Sources */,
+				C7E0A9FF2927DD1A00FC7A38 /* VerticalStack.swift in Sources */,
 				C7E0A9EE2927B9FE00FC7A38 /* SearchHomeController.swift in Sources */,
 				C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */,
+				C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */,
+				C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */,
 				C7E0A9E72927B98B00FC7A38 /* AppTabBarController.swift in Sources */,
+				C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */,
+				C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */,
 				C7E0A9E92927B9B600FC7A38 /* TodayHomeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,6 +454,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		C7E0A9F92927D34700FC7A38 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = C7E0A9C12927AF1600FC7A38 /* Project object */;
 }
