@@ -1,2 +1,2 @@
-# AppStore-Clone
-Learn and make a close of AppStore app.
+## AppStore Clone [Under Development]
+Learn and make a clone of AppStore app.
