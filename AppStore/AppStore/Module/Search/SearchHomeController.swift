@@ -11,6 +11,8 @@ private let reuseIdentifier = "Cell"
 
 class SearchHomeController: UICollectionViewController {
 
+    private let dataSource = SearchHomeDataSource()
+    
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
     }
@@ -22,12 +24,21 @@ class SearchHomeController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
+        initialFetch()
     }
     
     private func initialSetup() {
         collectionView.register(cell: SearchCollectionCell.self)
         collectionView.backgroundColor = .white
         collectionView.alwaysBounceVertical = true
+    }
+    
+    private func initialFetch() {
+        dataSource.fetchRequest(searchText: "instagram") {
+            DispatchQueue.main.async {
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -37,7 +48,7 @@ extension SearchHomeController: UICollectionViewDelegateFlowLayout {
     override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return self.dataSource.searchResult?.results.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

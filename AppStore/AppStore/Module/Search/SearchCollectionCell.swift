@@ -19,7 +19,7 @@ class SearchCollectionCell: BaseCollectionCell {
     
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 18, weight: .regular)
+        label.font = UIFont.regular(18)
         label.textColor = .label
         label.text = "Instagram"
         return label
@@ -27,7 +27,7 @@ class SearchCollectionCell: BaseCollectionCell {
     
     private let categoryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.regular(14)
         label.textColor = .secondaryLabel
         label.text = "Social Media"
         return label
@@ -35,7 +35,7 @@ class SearchCollectionCell: BaseCollectionCell {
     
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14, weight: .regular)
+        label.font = UIFont.regular(14)
         label.textColor = .tertiaryLabel
         label.text = "90K+ ratings"
         return label
@@ -45,7 +45,7 @@ class SearchCollectionCell: BaseCollectionCell {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
         button.backgroundColor = .quaternaryLabel
-        button.titleLabel?.font = UIFont.systemFont(ofSize: 16, weight: .semibold)
+        button.titleLabel?.font = UIFont.semibold(16)
         button.layer.cornerRadius = 16
         return button
     }()

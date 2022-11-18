@@ -21,6 +21,21 @@
 		C7E0A9FA2927D34700FC7A38 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C7E0A9F92927D34700FC7A38 /* SnapKit */; };
 		C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */; };
 		C7E0A9FF2927DD1A00FC7A38 /* VerticalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */; };
+		C7E0AA012927E72F00FC7A38 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA002927E72F00FC7A38 /* UIFont+Extension.swift */; };
+		C7E0AA042927ED9900FC7A38 /* SDWebImage in Frameworks */ = {isa = PBXBuildFile; productRef = C7E0AA032927ED9900FC7A38 /* SDWebImage */; };
+		C7E0AA072927EFC900FC7A38 /* NetworkEndpoint.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA062927EFC900FC7A38 /* NetworkEndpoint.swift */; };
+		C7E0AA092927EFD500FC7A38 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA082927EFD500FC7A38 /* NetworkManager.swift */; };
+		C7E0AA0B2927F25400FC7A38 /* NetworkError.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA0A2927F25400FC7A38 /* NetworkError.swift */; };
+		C7E0AA0E2927F2CB00FC7A38 /* Reachability in Frameworks */ = {isa = PBXBuildFile; productRef = C7E0AA0D2927F2CB00FC7A38 /* Reachability */; };
+		C7E0AA102927F2F300FC7A38 /* NetworkReachability.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA0F2927F2F300FC7A38 /* NetworkReachability.swift */; };
+		C7E0AA122927F33900FC7A38 /* Notification+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA112927F33900FC7A38 /* Notification+Extension.swift */; };
+		C7E0AA152927F3A900FC7A38 /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = C7E0AA142927F3A900FC7A38 /* CocoaLumberjackSwift */; };
+		C7E0AA182927F3D900FC7A38 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA172927F3D900FC7A38 /* Logger.swift */; };
+		C7E0AA1A2927F4E700FC7A38 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA192927F4E700FC7A38 /* String+Extension.swift */; };
+		C7E0AA1C2927F66800FC7A38 /* NetworkKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA1B2927F66800FC7A38 /* NetworkKeys.swift */; };
+		C7E0AA1E2927F6C900FC7A38 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA1D2927F6C900FC7A38 /* RequestFactory.swift */; };
+		C7E0AA202927F7F100FC7A38 /* Data+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA1F2927F7F100FC7A38 /* Data+Extension.swift */; };
+		C7E0AA222927F82D00FC7A38 /* SearchHomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA212927F82D00FC7A38 /* SearchHomeDataSource.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +54,18 @@
 		C7E0A9F62927CFEE00FC7A38 /* UICollectionView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionView+Extension.swift"; sourceTree = "<group>"; };
 		C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerticalStack.swift; sourceTree = "<group>"; };
+		C7E0AA002927E72F00FC7A38 /* UIFont+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont+Extension.swift"; sourceTree = "<group>"; };
+		C7E0AA062927EFC900FC7A38 /* NetworkEndpoint.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkEndpoint.swift; sourceTree = "<group>"; };
+		C7E0AA082927EFD500FC7A38 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		C7E0AA0A2927F25400FC7A38 /* NetworkError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkError.swift; sourceTree = "<group>"; };
+		C7E0AA0F2927F2F300FC7A38 /* NetworkReachability.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkReachability.swift; sourceTree = "<group>"; };
+		C7E0AA112927F33900FC7A38 /* Notification+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Notification+Extension.swift"; sourceTree = "<group>"; };
+		C7E0AA172927F3D900FC7A38 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		C7E0AA192927F4E700FC7A38 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
+		C7E0AA1B2927F66800FC7A38 /* NetworkKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkKeys.swift; sourceTree = "<group>"; };
+		C7E0AA1D2927F6C900FC7A38 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
+		C7E0AA1F2927F7F100FC7A38 /* Data+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Data+Extension.swift"; sourceTree = "<group>"; };
+		C7E0AA212927F82D00FC7A38 /* SearchHomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchHomeDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -46,6 +73,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0AA042927ED9900FC7A38 /* SDWebImage in Frameworks */,
+				C7E0AA0E2927F2CB00FC7A38 /* Reachability in Frameworks */,
+				C7E0AA152927F3A900FC7A38 /* CocoaLumberjackSwift in Frameworks */,
 				C7E0A9FA2927D34700FC7A38 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,6 +102,8 @@
 		C7E0A9CB2927AF1600FC7A38 /* AppStore */ = {
 			isa = PBXGroup;
 			children = (
+				C7E0AA162927F3CB00FC7A38 /* Manager */,
+				C7E0AA052927EF8400FC7A38 /* Networking */,
 				C7E0A9FD2927DCF000FC7A38 /* Subclass */,
 				C7E0A9F32927C9E400FC7A38 /* Extension */,
 				C7E0A9E02927B8E900FC7A38 /* AppDelegate */,
@@ -132,6 +164,7 @@
 			children = (
 				C7E0A9ED2927B9FE00FC7A38 /* SearchHomeController.swift */,
 				C7E0A9F12927C95500FC7A38 /* SearchCollectionCell.swift */,
+				C7E0AA212927F82D00FC7A38 /* SearchHomeDataSource.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -142,6 +175,10 @@
 				C7E0A9F42927CA8100FC7A38 /* UICollectionViewCell+Extension.swift */,
 				C7E0A9F62927CFEE00FC7A38 /* UICollectionView+Extension.swift */,
 				C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */,
+				C7E0AA002927E72F00FC7A38 /* UIFont+Extension.swift */,
+				C7E0AA112927F33900FC7A38 /* Notification+Extension.swift */,
+				C7E0AA192927F4E700FC7A38 /* String+Extension.swift */,
+				C7E0AA1F2927F7F100FC7A38 /* Data+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -152,6 +189,27 @@
 				C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */,
 			);
 			path = Subclass;
+			sourceTree = "<group>";
+		};
+		C7E0AA052927EF8400FC7A38 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0AA062927EFC900FC7A38 /* NetworkEndpoint.swift */,
+				C7E0AA082927EFD500FC7A38 /* NetworkManager.swift */,
+				C7E0AA0A2927F25400FC7A38 /* NetworkError.swift */,
+				C7E0AA0F2927F2F300FC7A38 /* NetworkReachability.swift */,
+				C7E0AA1B2927F66800FC7A38 /* NetworkKeys.swift */,
+				C7E0AA1D2927F6C900FC7A38 /* RequestFactory.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		C7E0AA162927F3CB00FC7A38 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0AA172927F3D900FC7A38 /* Logger.swift */,
+			);
+			path = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -172,6 +230,9 @@
 			name = AppStore;
 			packageProductDependencies = (
 				C7E0A9F92927D34700FC7A38 /* SnapKit */,
+				C7E0AA032927ED9900FC7A38 /* SDWebImage */,
+				C7E0AA0D2927F2CB00FC7A38 /* Reachability */,
+				C7E0AA142927F3A900FC7A38 /* CocoaLumberjackSwift */,
 			);
 			productName = AppStore;
 			productReference = C7E0A9C92927AF1600FC7A38 /* AppStore.app */;
@@ -203,6 +264,9 @@
 			mainGroup = C7E0A9C02927AF1600FC7A38;
 			packageReferences = (
 				C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				C7E0AA022927ED9900FC7A38 /* XCRemoteSwiftPackageReference "SDWebImage" */,
+				C7E0AA0C2927F2CB00FC7A38 /* XCRemoteSwiftPackageReference "Reachability" */,
+				C7E0AA132927F3A900FC7A38 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
 			);
 			productRefGroup = C7E0A9CA2927AF1600FC7A38 /* Products */;
 			projectDirPath = "";
@@ -231,16 +295,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */,
+				C7E0AA222927F82D00FC7A38 /* SearchHomeDataSource.swift in Sources */,
+				C7E0AA072927EFC900FC7A38 /* NetworkEndpoint.swift in Sources */,
 				C7E0A9EC2927B9DC00FC7A38 /* AppsHomeController.swift in Sources */,
+				C7E0AA1E2927F6C900FC7A38 /* RequestFactory.swift in Sources */,
+				C7E0AA1A2927F4E700FC7A38 /* String+Extension.swift in Sources */,
 				C7E0A9FF2927DD1A00FC7A38 /* VerticalStack.swift in Sources */,
 				C7E0A9EE2927B9FE00FC7A38 /* SearchHomeController.swift in Sources */,
 				C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */,
 				C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */,
+				C7E0AA012927E72F00FC7A38 /* UIFont+Extension.swift in Sources */,
 				C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */,
+				C7E0AA1C2927F66800FC7A38 /* NetworkKeys.swift in Sources */,
+				C7E0AA0B2927F25400FC7A38 /* NetworkError.swift in Sources */,
 				C7E0A9E72927B98B00FC7A38 /* AppTabBarController.swift in Sources */,
+				C7E0AA092927EFD500FC7A38 /* NetworkManager.swift in Sources */,
+				C7E0AA122927F33900FC7A38 /* Notification+Extension.swift in Sources */,
+				C7E0AA182927F3D900FC7A38 /* Logger.swift in Sources */,
 				C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */,
 				C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */,
+				C7E0AA202927F7F100FC7A38 /* Data+Extension.swift in Sources */,
 				C7E0A9E92927B9B600FC7A38 /* TodayHomeController.swift in Sources */,
+				C7E0AA102927F2F300FC7A38 /* NetworkReachability.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -464,6 +540,30 @@
 				kind = branch;
 			};
 		};
+		C7E0AA022927ED9900FC7A38 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		C7E0AA0C2927F2CB00FC7A38 /* XCRemoteSwiftPackageReference "Reachability" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ashleymills/Reachability.swift";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+		C7E0AA132927F3A900FC7A38 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -471,6 +571,21 @@
 			isa = XCSwiftPackageProductDependency;
 			package = C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		C7E0AA032927ED9900FC7A38 /* SDWebImage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7E0AA022927ED9900FC7A38 /* XCRemoteSwiftPackageReference "SDWebImage" */;
+			productName = SDWebImage;
+		};
+		C7E0AA0D2927F2CB00FC7A38 /* Reachability */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7E0AA0C2927F2CB00FC7A38 /* XCRemoteSwiftPackageReference "Reachability" */;
+			productName = Reachability;
+		};
+		C7E0AA142927F3A900FC7A38 /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C7E0AA132927F3A900FC7A38 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
