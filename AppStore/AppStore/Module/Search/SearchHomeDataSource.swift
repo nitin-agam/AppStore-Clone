@@ -30,6 +30,21 @@ class SearchHomeDataSource {
             }
         }
     }
+    
+    func numberOfSection() -> Int {
+        guard let result = searchResult else { return 0 }
+        return result.results.count == 0 ? 0 : 1
+    }
+    
+    func numberOfRows(in section: Int) -> Int {
+        guard let result = searchResult else { return 0 }
+        return result.results.count
+    }
+    
+    func object(at indexPath: IndexPath) -> AppData? {
+        guard let result = searchResult, indexPath.row < result.results.count else { return nil }
+        return result.results[indexPath.row]
+    }
 }
 
 struct SearchResult: Decodable {
@@ -40,5 +55,7 @@ struct SearchResult: Decodable {
 struct AppData: Decodable {
     let trackName: String
     let primaryGenreName: String
-    let averageUserRating: Double
+    let averageUserRating: Float
+    let screenshotUrls: [String]
+    let artworkUrl100: String
 }

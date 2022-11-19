@@ -6,14 +6,15 @@
 //
 
 import UIKit
+import SDWebImage
 
 class SearchCollectionCell: BaseCollectionCell {
     
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.backgroundColor = .red
         imageView.layer.cornerRadius = 10
+        imageView.clipsToBounds = true
         return imageView
     }()
     
@@ -21,7 +22,6 @@ class SearchCollectionCell: BaseCollectionCell {
         let label = UILabel()
         label.font = UIFont.regular(18)
         label.textColor = .label
-        label.text = "Instagram"
         return label
     }()
     
@@ -29,7 +29,6 @@ class SearchCollectionCell: BaseCollectionCell {
         let label = UILabel()
         label.font = UIFont.regular(14)
         label.textColor = .secondaryLabel
-        label.text = "Social Media"
         return label
     }()
     
@@ -37,7 +36,6 @@ class SearchCollectionCell: BaseCollectionCell {
         let label = UILabel()
         label.font = UIFont.regular(14)
         label.textColor = .tertiaryLabel
-        label.text = "90K+ ratings"
         return label
     }()
     
@@ -53,34 +51,38 @@ class SearchCollectionCell: BaseCollectionCell {
     private let screenshotImageView1: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
         return imageView
     }()
     
     private let screenshotImageView2: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
         return imageView
     }()
     
     private let screenshotImageView3: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFill
-        imageView.backgroundColor = .red
+        imageView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
         imageView.layer.cornerRadius = 10
         imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.5
+        imageView.layer.borderColor = UIColor(white: 0.5, alpha: 0.5).cgColor
         return imageView
     }()
     
     override func initialSetup() {
         super.initialSetup()
-        
-        backgroundColor = .yellow
         
         let labelsStackView = VerticalStack(arrangedSubviews: [nameLabel, categoryLabel, ratingLabel], spacing: 2)
         
@@ -101,5 +103,43 @@ class SearchCollectionCell: BaseCollectionCell {
         contentStackView.fillSuperviewConstraints(.init(top: 16, left: 16, bottom: 16, right: 16))
         appIconImageView.equalSizeConstraints(58)
         downloadButton.sizeConstraints(width: 74, height: 32)
+    }
+    
+    func configure(with appData: AppData?) {
+        guard let appObject = appData else { return }
+        
+        nameLabel.text = appObject.primaryGenreName
+        categoryLabel.text = appObject.trackName
+        ratingLabel.text = "ratings: \(appObject.averageUserRating)"
+        
+        if let appIconUrl = URL(string: appObject.artworkUrl100) {
+            appIconImageView.sd_setImage(with: appIconUrl)
+        } else {
+            appIconImageView.image = nil
+        }
+        
+        if appObject.screenshotUrls.count > 0 {
+            if let screenshotUrl = URL(string: appObject.screenshotUrls[0]) {
+                screenshotImageView1.sd_setImage(with: screenshotUrl)
+            } else {
+                screenshotImageView1.image = nil
+            }
+            
+            if appObject.screenshotUrls.count > 1 {
+                if let screenshotUrl = URL(string: appObject.screenshotUrls[1]) {
+                    screenshotImageView2.sd_setImage(with: screenshotUrl)
+                } else {
+                    screenshotImageView2.image = nil
+                }
+                
+                if appObject.screenshotUrls.count > 2 {
+                    if let screenshotUrl = URL(string: appObject.screenshotUrls[2]) {
+                        screenshotImageView3.sd_setImage(with: screenshotUrl)
+                    } else {
+                        screenshotImageView3.image = nil
+                    }
+                }
+            }
+        }
     }
 }

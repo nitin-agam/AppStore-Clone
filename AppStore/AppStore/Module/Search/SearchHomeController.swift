@@ -45,10 +45,12 @@ class SearchHomeController: UICollectionViewController {
 // MARK: UICollectionViewDataSource
 extension SearchHomeController: UICollectionViewDelegateFlowLayout {
     
-    override func numberOfSections(in collectionView: UICollectionView) -> Int { 1 }
+    override func numberOfSections(in collectionView: UICollectionView) -> Int {
+        dataSource.numberOfSection()
+    }
 
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.dataSource.searchResult?.results.count ?? 0
+        dataSource.numberOfRows(in: section)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -61,6 +63,7 @@ extension SearchHomeController: UICollectionViewDelegateFlowLayout {
 
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withClass: SearchCollectionCell.self, for: indexPath)
+        cell.configure(with: dataSource.object(at: indexPath))
         return cell
     }
 }
