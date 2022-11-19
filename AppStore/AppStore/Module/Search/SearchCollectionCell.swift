@@ -108,9 +108,9 @@ class SearchCollectionCell: BaseCollectionCell {
     func configure(with appData: AppData?) {
         guard let appObject = appData else { return }
         
-        nameLabel.text = appObject.primaryGenreName
-        categoryLabel.text = appObject.trackName
-        ratingLabel.text = "ratings: \(appObject.averageUserRating)"
+        nameLabel.text = appObject.trackName
+        categoryLabel.text = appObject.primaryGenreName
+        ratingLabel.text = "Ratings: \(appObject.averageUserRating)"
         
         if let appIconUrl = URL(string: appObject.artworkUrl100) {
             appIconImageView.sd_setImage(with: appIconUrl)

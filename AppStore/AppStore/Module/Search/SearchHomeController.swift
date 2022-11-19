@@ -7,11 +7,20 @@
 
 import UIKit
 
-private let reuseIdentifier = "Cell"
-
 class SearchHomeController: UICollectionViewController {
-
+    
+    private let enterSearchTextLabel: UILabel = {
+        let label = UILabel()
+        label.font = UIFont.regular(16)
+        label.textColor = .tertiaryLabel
+        label.text = "Enter search text above..."
+        label.textAlignment = .center
+        return label
+    }()
+    
+    private var searchDelayTimer: Timer?
     private let dataSource = SearchHomeDataSource()
+    private let searchController = UISearchController(searchResultsController: nil)
     
     init() {
         super.init(collectionViewLayout: UICollectionViewFlowLayout())
@@ -24,21 +33,22 @@ class SearchHomeController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initialSetup()
-        initialFetch()
     }
     
     private func initialSetup() {
         collectionView.register(cell: SearchCollectionCell.self)
         collectionView.backgroundColor = .white
         collectionView.alwaysBounceVertical = true
-    }
-    
-    private func initialFetch() {
-        dataSource.fetchRequest(searchText: "instagram") {
-            DispatchQueue.main.async {
-                self.collectionView.reloadData()
-            }
-        }
+        
+        navigationItem.searchController = self.searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.obscuresBackgroundDuringPresentation = false
+        searchController.searchBar.delegate = self
+        searchController.searchBar.placeholder = "Games, Apps, Stories and More"
+        
+        collectionView.addSubview(enterSearchTextLabel)
+        enterSearchTextLabel.centerXInSuperviewConstraints()
+        enterSearchTextLabel.makeConstraints(top: collectionView.topAnchor, padding: .init(top: 100, left: 0, bottom: 0, right: 0))
     }
 }
 
@@ -48,9 +58,11 @@ extension SearchHomeController: UICollectionViewDelegateFlowLayout {
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         dataSource.numberOfSection()
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        dataSource.numberOfRows(in: section)
+        let rows = dataSource.numberOfRows(in: section)
+        enterSearchTextLabel.isHidden = rows != 0
+        return rows
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -60,10 +72,27 @@ extension SearchHomeController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         .init(width: collectionView.frame.width, height: 350)
     }
-
+    
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withClass: SearchCollectionCell.self, for: indexPath)
         cell.configure(with: dataSource.object(at: indexPath))
         return cell
+    }
+}
+
+extension SearchHomeController: UISearchBarDelegate {
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        searchDelayTimer?.invalidate()
+        searchDelayTimer = Timer.scheduledTimer(withTimeInterval: 0.5,
+                                                repeats: false,
+                                                block: { [weak self] _ in
+            guard let self = self else { return }
+            self.dataSource.fetchRequest(searchText: searchText) {
+                DispatchQueue.main.async {
+                    self.collectionView.reloadData()
+                }
+            }
+        })
     }
 }

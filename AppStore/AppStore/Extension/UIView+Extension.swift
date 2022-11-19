@@ -22,10 +22,10 @@ extension UIView {
 extension UIView {
     
     @discardableResult
-    func makeConstraints(top: NSLayoutYAxisAnchor?,
-                leading: NSLayoutXAxisAnchor?,
-                bottom: NSLayoutYAxisAnchor?,
-                trailing: NSLayoutXAxisAnchor?,
+    func makeConstraints(top: NSLayoutYAxisAnchor? = nil,
+                leading: NSLayoutXAxisAnchor? = nil,
+                bottom: NSLayoutYAxisAnchor? = nil,
+                trailing: NSLayoutXAxisAnchor? = nil,
                 padding: UIEdgeInsets = .zero,
                 size: CGSize = .zero) -> AnchoredConstraints {
         
