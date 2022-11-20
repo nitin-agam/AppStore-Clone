@@ -16,7 +16,7 @@ class AppTabBarController: UITabBarController {
         let appsNavigation = constructNavigationController(controller: AppsHomeController(), title: "Apps", imageName: "app.badge")
         let searchNavigation = constructNavigationController(controller: SearchHomeController(), title: "Search", imageName: "magnifyingglass")
         
-        viewControllers = [searchNavigation, todayNavigation, appsNavigation]
+        viewControllers = [appsNavigation, searchNavigation, todayNavigation]
     }
 
     private func constructNavigationController(controller: UIViewController, title: String, imageName: String) -> UINavigationController {

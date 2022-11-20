@@ -1,13 +1,17 @@
 //
-//  AppsHomeController.swift
+//  AppsHorizontalListController.swift
 //  AppStore
 //
-//  Created by Nitin Aggarwal on 18/11/22.
+//  Created by Nitin Aggarwal on 20/11/22.
 //
 
 import UIKit
 
-class AppsHomeController: BaseCollectionListController {
+class AppsHorizontalListController: BaseCollectionListController {
+
+    private let topBottomPadding: CGFloat = 8
+    private let lineSpacing: CGFloat = 10
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,13 +19,16 @@ class AppsHomeController: BaseCollectionListController {
     }
     
     private func initialSetup() {
-        collectionView.register(cell: AppsGroupCollectionCell.self)
-        collectionView.alwaysBounceVertical = true
+        collectionView.register(cell: AppHorizontalRowCell.self)
+        
+        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
+            layout.scrollDirection = .horizontal
+        }
     }
 }
 
 // MARK: UICollectionViewDataSource
-extension AppsHomeController: UICollectionViewDelegateFlowLayout {
+extension AppsHorizontalListController: UICollectionViewDelegateFlowLayout {
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         1
@@ -32,19 +39,24 @@ extension AppsHomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        20
+        lineSpacing + 6
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: collectionView.frame.width, height: 300)
+        let height = (collectionView.frame.height - 2 * topBottomPadding - 2 * lineSpacing) / 3
+        return .init(width: collectionView.frame.width - 48, height: height)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withClass: AppsGroupCollectionCell.self, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withClass: AppHorizontalRowCell.self, for: indexPath)
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .init(top: 16, left: 0, bottom: 0, right: 0)
+        .init(top: topBottomPadding, left: 16, bottom: topBottomPadding, right: 16)
     }
 }

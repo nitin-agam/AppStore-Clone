@@ -98,7 +98,7 @@ class SearchCollectionCell: BaseCollectionCell {
         
         let contentStackView = VerticalStack(arrangedSubviews: [basicInfoStackView, screenshotsStackView], spacing: 16)
         
-        contentView.addSubviews(contentStackView)
+        addSubviews(contentStackView)
         
         contentStackView.fillSuperviewConstraints(.init(top: 16, left: 16, bottom: 16, right: 16))
         appIconImageView.equalSizeConstraints(58)
