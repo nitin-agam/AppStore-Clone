@@ -21,5 +21,7 @@ class BaseCollectionListController: UICollectionViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         collectionView.backgroundColor = .white
+        collectionView.showsHorizontalScrollIndicator = false
+        collectionView.showsVerticalScrollIndicator = false
     }
 }

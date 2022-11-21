@@ -19,8 +19,8 @@ class AppHorizontalRowCell: BaseCollectionCell {
     }()
     
     private let appIconImageView = UIImageView(cornerRadius: 10)
-    private let nameLabel = UILabel(text: "App Name", font: .regular(18))
-    private let categoryLabel = UILabel(text: "App Category", font: .regular(14), textColor: .secondaryLabel)
+    private let nameLabel = UILabel(text: "", font: .regular(16))
+    private let categoryLabel = UILabel(text: "", font: .regular(13), textColor: .secondaryLabel)
     
     override func initialSetup() {
         super.initialSetup()
@@ -42,5 +42,18 @@ class AppHorizontalRowCell: BaseCollectionCell {
         basicInfoStackView.fillSuperviewConstraints()
         appIconImageView.equalSizeConstraints(58)
         downloadButton.sizeConstraints(width: 74, height: 32)
+    }
+    
+    func configure(with feedResult: FeedResult?) {
+        guard let feed = feedResult else { return }
+        
+        nameLabel.text = feed.name
+        categoryLabel.text = feed.artistName
+        
+        if let appIconUrl = URL(string: feed.artworkUrl100) {
+            appIconImageView.sd_setImage(with: appIconUrl)
+        } else {
+            appIconImageView.image = nil
+        }
     }
 }

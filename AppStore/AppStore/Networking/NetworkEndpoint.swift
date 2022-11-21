@@ -9,6 +9,8 @@ import UIKit
 
 enum NetworkEndpoint {
     case searchApp(name: String)
+    case appsFree
+    case appsPaid
 }
 
 extension NetworkEndpoint {
@@ -28,6 +30,12 @@ extension NetworkEndpoint {
             let queryItems: [QueryItem] = [QueryItem(key: "term", value: name),
                                            QueryItem(key: "entity", value: "software")]
             return .make(endpoint: "search", headers: nil, queries: queryItems, method: .GET, version: 0, params: nil)
+            
+        case .appsFree:
+            return .makeStatic("https://rss.applemarketingtools.com/api/v2/in/apps/top-free/50/apps.json")
+            
+        case .appsPaid:
+            return .makeStatic("https://rss.applemarketingtools.com/api/v2/in/apps/top-paid/50/apps.json")
         }
     }
 }
@@ -61,6 +69,11 @@ extension URLRequest {
             return request
         }
         return nil
+    }
+    
+    static func makeStatic(_ urlString: String) -> URLRequest? {
+        guard let url = URL(string: urlString) else { return nil }
+        return URLRequest(url: url)
     }
 }
 
