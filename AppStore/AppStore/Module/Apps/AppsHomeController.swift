@@ -9,6 +9,13 @@ import UIKit
 
 class AppsHomeController: BaseCollectionListController {
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.tintColor = .darkGray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
     private let dataSource = AppsHomeDataSource()
     
     
@@ -22,11 +29,16 @@ class AppsHomeController: BaseCollectionListController {
         collectionView.register(cell: AppsGroupCollectionCell.self)
         collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: AppsCollectionHeaderView.self)
         collectionView.alwaysBounceVertical = true
+        
+        view.addSubview(activityIndicator)
+        activityIndicator.fillSuperviewConstraints()
     }
     
     private func initialFetch() {
+        self.activityIndicator.startAnimating()
         self.dataSource.fetchData() {
             DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
                 self.collectionView.reloadData()
             }
         }
@@ -53,11 +65,13 @@ extension AppsHomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        .init(width: collectionView.frame.width, height: 300)
+        let hasHeaderData = dataSource.socialApps.count > 0
+        return .init(width: collectionView.frame.width, height: hasHeaderData ? 300 : 0)
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withClass: AppsCollectionHeaderView.self, for: indexPath)
+        headerView.configure(with: dataSource.socialApps)
         return headerView
     }
     

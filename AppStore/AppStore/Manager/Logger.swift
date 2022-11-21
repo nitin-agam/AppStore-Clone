@@ -139,7 +139,8 @@ extension Logger {
         ⚡️⚡️⚡️⚡️ RESPONSE ⚡️⚡️⚡️⚡️
         ⚡️⚡️⚡️⚡️ URL -> \(response?.url?.absoluteString ?? "NIL")
         ⚡️⚡️⚡️⚡️ STATUS CODE -> \(statusCode)
-        ⚡️⚡️⚡️⚡️ DATA -> \(data?.dictionary ?? [:])
+        ⚡️⚡️⚡️⚡️ DATA DICTIONARY -> \(data?.dictionary ?? [:])
+        ⚡️⚡️⚡️⚡️ DATA -> \(data)
         ⚡️⚡️⚡️⚡️ ERROR -> \(String(describing: error))
         ⚡️⚡️⚡️⚡️ ---------------------- ⚡️⚡️⚡️⚡️
     """

@@ -68,12 +68,8 @@ extension NetworkManager {
         }
         
         do {
-            let responseJSON = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-            if let _ = responseJSON as? [String : Any] {
-                completion?(.success(data))
-            } else {
-                completion?(.failure(NetworkError(title: String.ErrorMessage.invalidParsing)))
-            }
+            let _ = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+            completion?(.success(data))
         } catch let error {
             Log.log("Error during parsing data is: \(error)", type: .error)
             completion?(.failure(NetworkError(title: String.ErrorMessage.invalidParsing)))

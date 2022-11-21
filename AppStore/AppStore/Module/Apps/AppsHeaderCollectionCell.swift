@@ -9,8 +9,8 @@ import UIKit
 
 class AppsHeaderCollectionCell: BaseCollectionCell {
     
-    private let titleLabel = UILabel(text: "Instagram", font: .regular(13), textColor: .blue)
-    private let subtitleLabel = UILabel(text: "This application is based on social media and quite popular app.", font: .regular(20))
+    private let titleLabel = UILabel(text: "", font: .regular(13), textColor: .blue)
+    private let subtitleLabel = UILabel(text: "", font: .regular(20))
     
     private let contentImageView: UIImageView = {
         let imageView = UIImageView()
@@ -21,15 +21,26 @@ class AppsHeaderCollectionCell: BaseCollectionCell {
         return imageView
     }()
     
+    
     override func initialSetup() {
         super.initialSetup()
-        
         subtitleLabel.numberOfLines = 2
-        
         let stackView = VerticalStack(arrangedSubviews: [titleLabel, subtitleLabel, contentImageView], spacing: 10)
-        
         addSubview(stackView)
-        
         stackView.fillSuperviewConstraints(.init(top: 16, left: 0, bottom: 0, right: 0))
+    }
+    
+    func configure(with socialApp: SocialApp?) {
+        
+        guard let socialApp = socialApp else { return }
+        
+        titleLabel.text = socialApp.name
+        subtitleLabel.text = socialApp.tagline
+        
+        if let appIconUrl = URL(string: socialApp.imageUrl) {
+            contentImageView.sd_setImage(with: appIconUrl)
+        } else {
+            contentImageView.image = nil
+        }
     }
 }

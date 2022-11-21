@@ -11,6 +11,8 @@ class AppsHeaderController: BaseCollectionListController {
     
     private let topBottomPadding: CGFloat = 8
     private let lineSpacing: CGFloat = 10
+    var socialApps: [SocialApp]?
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +36,7 @@ extension AppsHeaderController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        socialApps?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -51,10 +53,11 @@ extension AppsHeaderController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withClass: AppsHeaderCollectionCell.self, for: indexPath)
+        cell.configure(with: socialApps?[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .init(top: 0, left: 16, bottom: 0, right: 0)
+        .init(top: 0, left: 16, bottom: 0, right: 16)
     }
 }

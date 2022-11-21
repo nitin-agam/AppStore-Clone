@@ -11,6 +11,7 @@ enum NetworkEndpoint {
     case searchApp(name: String)
     case appsFree
     case appsPaid
+    case socialApps
 }
 
 extension NetworkEndpoint {
@@ -36,6 +37,9 @@ extension NetworkEndpoint {
             
         case .appsPaid:
             return .makeStatic("https://rss.applemarketingtools.com/api/v2/in/apps/top-paid/50/apps.json")
+            
+        case .socialApps:
+            return .makeStatic("https://api.letsbuildthatapp.com/appstore/social")
         }
     }
 }

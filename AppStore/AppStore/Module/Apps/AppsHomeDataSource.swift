@@ -9,7 +9,8 @@ import Foundation
 
 class AppsHomeDataSource {
     
-    var sectionGroups: [AppGroup] = []
+    private var sectionGroups: [AppGroup] = []
+    private(set) var socialApps: [SocialApp] = []
     
     func fetchData(_ completion: (() -> ())?) {
         
@@ -54,6 +55,24 @@ class AppsHomeDataSource {
             dispatchGroup.leave()
         }
         
+        dispatchGroup.enter()
+        Networking.sendRequest(.socialApps) { result in
+            Log.log("fetched social apps...")
+            switch result {
+            case .success(let data):
+                do {
+                    self.socialApps = try JSONDecoder().decode([SocialApp].self, from: data)
+                } catch let jsonError {
+                    Log.log("failed to parse social apps result with error: \(jsonError)", type: .error)
+                }
+
+            case .failure(let error):
+                Log.log("failed to fetch social apps result with error: \(error.title)", type: .error)
+            }
+            
+            dispatchGroup.leave()
+        }
+        
         
         dispatchGroup.notify(queue: .main) {
             self.sectionGroups = [appGroup1, appGroup2].compactMap{ $0 }
@@ -90,4 +109,10 @@ struct FeedResult: Decodable {
     let name: String
     let artistName: String
     let artworkUrl100: String
+}
+
+struct SocialApp: Decodable {
+    let name: String
+    let tagline: String
+    let imageUrl: String
 }
