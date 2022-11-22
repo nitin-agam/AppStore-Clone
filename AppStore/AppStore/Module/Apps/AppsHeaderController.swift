@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppsHeaderController: BaseCollectionListController {
+class AppsHeaderController: BaseHorizontalListController {
     
     private let topBottomPadding: CGFloat = 8
     private let lineSpacing: CGFloat = 10
@@ -21,10 +21,7 @@ class AppsHeaderController: BaseCollectionListController {
     
     private func initialSetup() {
         collectionView.register(cell: AppsHeaderCollectionCell.self)
-        
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
 }
 
@@ -55,9 +52,5 @@ extension AppsHeaderController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withClass: AppsHeaderCollectionCell.self, for: indexPath)
         cell.configure(with: socialApps?[indexPath.item])
         return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .init(top: 0, left: 16, bottom: 0, right: 16)
     }
 }

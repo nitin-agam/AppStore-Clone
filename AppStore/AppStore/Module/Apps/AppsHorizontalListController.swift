@@ -7,7 +7,7 @@
 
 import UIKit
 
-class AppsHorizontalListController: BaseCollectionListController {
+class AppsHorizontalListController: BaseHorizontalListController {
 
     private let topBottomPadding: CGFloat = 8
     private let lineSpacing: CGFloat = 10
@@ -21,10 +21,7 @@ class AppsHorizontalListController: BaseCollectionListController {
     
     private func initialSetup() {
         collectionView.register(cell: AppHorizontalRowCell.self)
-        
-        if let layout = collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .horizontal
-        }
+        collectionView.contentInset = .init(top: 0, left: 16, bottom: 0, right: 16)
     }
 }
 
@@ -59,6 +56,6 @@ extension AppsHorizontalListController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        .init(top: topBottomPadding, left: 16, bottom: topBottomPadding, right: 16)
+        .init(top: topBottomPadding, left: 0, bottom: topBottomPadding, right: 0)
     }
 }
