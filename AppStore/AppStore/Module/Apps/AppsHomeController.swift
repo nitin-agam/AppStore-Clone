@@ -78,6 +78,14 @@ extension AppsHomeController: UICollectionViewDelegateFlowLayout {
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withClass: AppsGroupCollectionCell.self, for: indexPath)
         cell.configure(appGroup: dataSource.object(at: indexPath))
+        
+        cell.controller.didTapFeed = { [weak self] feedResult in
+            guard let self = self, let feed = feedResult else { return }
+            let controller = AppDetailController()
+            controller.appId = feed.id
+            self.navigationController?.pushViewController(controller, animated: true)
+        }
+        
         return cell
     }
     

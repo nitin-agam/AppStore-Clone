@@ -12,6 +12,7 @@ class AppsHorizontalListController: BaseHorizontalListController {
     private let topBottomPadding: CGFloat = 8
     private let lineSpacing: CGFloat = 10
     var feedResults: [FeedResult]?
+    var didTapFeed: ((FeedResult?) -> ())?
     
     
     override func viewDidLoad() {
@@ -57,5 +58,9 @@ extension AppsHorizontalListController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         .init(top: topBottomPadding, left: 0, bottom: topBottomPadding, right: 0)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        didTapFeed?(feedResults?[indexPath.row])
     }
 }

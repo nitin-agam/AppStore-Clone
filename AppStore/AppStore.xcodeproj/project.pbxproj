@@ -48,6 +48,7 @@
 		C7E0AA36292B766F00FC7A38 /* AppsHomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA35292B766F00FC7A38 /* AppsHomeDataSource.swift */; };
 		C7E0AA38292CB94300FC7A38 /* BaseHorizontalListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA37292CB94300FC7A38 /* BaseHorizontalListController.swift */; };
 		C7E0AA3A292CB9A600FC7A38 /* SnappingCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA39292CB9A600FC7A38 /* SnappingCollectionLayout.swift */; };
+		C7E0AA3D292CC12000FC7A38 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		C7E0AA35292B766F00FC7A38 /* AppsHomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsHomeDataSource.swift; sourceTree = "<group>"; };
 		C7E0AA37292CB94300FC7A38 /* BaseHorizontalListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHorizontalListController.swift; sourceTree = "<group>"; };
 		C7E0AA39292CB9A600FC7A38 /* SnappingCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionLayout.swift; sourceTree = "<group>"; };
+		C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -162,6 +164,7 @@
 		C7E0A9E22927B91000FC7A38 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C7E0AA3B292CC0FF00FC7A38 /* App Details */,
 				C7E0A9E32927B91800FC7A38 /* Today */,
 				C7E0A9E42927B92100FC7A38 /* Apps */,
 				C7E0A9E52927B92900FC7A38 /* Search */,
@@ -248,6 +251,14 @@
 			path = Manager;
 			sourceTree = "<group>";
 		};
+		C7E0AA3B292CC0FF00FC7A38 /* App Details */ = {
+			isa = PBXGroup;
+			children = (
+				C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */,
+			);
+			path = "App Details";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -330,6 +341,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C7E0AA3D292CC12000FC7A38 /* AppDetailController.swift in Sources */,
 				C7E0AA2C292A7A8400FC7A38 /* AppHorizontalRowCell.swift in Sources */,
 				C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */,
 				C7E0AA222927F82D00FC7A38 /* SearchHomeDataSource.swift in Sources */,

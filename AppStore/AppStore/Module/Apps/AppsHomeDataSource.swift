@@ -106,12 +106,14 @@ struct Feed: Decodable {
 }
 
 struct FeedResult: Decodable {
+    let id: String
     let name: String
     let artistName: String
     let artworkUrl100: String
 }
 
 struct SocialApp: Decodable {
+    let id: String
     let name: String
     let tagline: String
     let imageUrl: String

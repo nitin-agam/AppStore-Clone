@@ -10,7 +10,7 @@ import UIKit
 class AppsGroupCollectionCell: BaseCollectionCell {
     
     private let sectionTitleLabel = UILabel(text: "", font: .bold(24))
-    private let controller = AppsHorizontalListController()
+    let controller = AppsHorizontalListController()
     
     
     override func initialSetup() {
