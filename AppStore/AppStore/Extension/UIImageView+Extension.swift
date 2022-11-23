@@ -9,10 +9,10 @@ import UIKit
 
 extension UIImageView {
     
-    convenience init(cornerRadius: CGFloat) {
+    convenience init(cornerRadius: CGFloat, mode: ContentMode = .scaleAspectFit) {
         self.init(image: nil)
         self.layer.cornerRadius = cornerRadius
-        self.contentMode = .scaleAspectFit
+        self.contentMode = mode
         self.clipsToBounds = true
     }
 }

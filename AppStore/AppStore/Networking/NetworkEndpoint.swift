@@ -12,6 +12,7 @@ enum NetworkEndpoint {
     case appsFree
     case appsPaid
     case socialApps
+    case lookup(appId: String)
 }
 
 extension NetworkEndpoint {
@@ -40,6 +41,9 @@ extension NetworkEndpoint {
             
         case .socialApps:
             return .makeStatic("https://api.letsbuildthatapp.com/appstore/social")
+            
+        case .lookup(let appId):
+            return .makeStatic("https://itunes.apple.com/lookup?id=\(appId)")
         }
     }
 }

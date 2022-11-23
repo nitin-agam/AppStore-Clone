@@ -49,6 +49,9 @@
 		C7E0AA38292CB94300FC7A38 /* BaseHorizontalListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA37292CB94300FC7A38 /* BaseHorizontalListController.swift */; };
 		C7E0AA3A292CB9A600FC7A38 /* SnappingCollectionLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA39292CB9A600FC7A38 /* SnappingCollectionLayout.swift */; };
 		C7E0AA3D292CC12000FC7A38 /* AppDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */; };
+		C7EAD410292DFD2A009D5561 /* AppDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD40F292DFD2A009D5561 /* AppDetailDataSource.swift */; };
+		C7EAD412292E03CD009D5561 /* AppDetailsInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD411292E03CD009D5561 /* AppDetailsInfoCell.swift */; };
+		C7EAD414292E0D29009D5561 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD413292E0D29009D5561 /* UIStackView+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -92,6 +95,9 @@
 		C7E0AA37292CB94300FC7A38 /* BaseHorizontalListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseHorizontalListController.swift; sourceTree = "<group>"; };
 		C7E0AA39292CB9A600FC7A38 /* SnappingCollectionLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SnappingCollectionLayout.swift; sourceTree = "<group>"; };
 		C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailController.swift; sourceTree = "<group>"; };
+		C7EAD40F292DFD2A009D5561 /* AppDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailDataSource.swift; sourceTree = "<group>"; };
+		C7EAD411292E03CD009D5561 /* AppDetailsInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsInfoCell.swift; sourceTree = "<group>"; };
+		C7EAD413292E0D29009D5561 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +223,7 @@
 				C7E0AA1F2927F7F100FC7A38 /* Data+Extension.swift */,
 				C7E0AA27292A787600FC7A38 /* UILabel+Extension.swift */,
 				C7E0AA2D292A84D000FC7A38 /* UIImageView+Extension.swift */,
+				C7EAD413292E0D29009D5561 /* UIStackView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -255,6 +262,8 @@
 			isa = PBXGroup;
 			children = (
 				C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */,
+				C7EAD40F292DFD2A009D5561 /* AppDetailDataSource.swift */,
+				C7EAD411292E03CD009D5561 /* AppDetailsInfoCell.swift */,
 			);
 			path = "App Details";
 			sourceTree = "<group>";
@@ -364,10 +373,13 @@
 				C7E0AA26292A77A900FC7A38 /* AppsGroupCollectionCell.swift in Sources */,
 				C7E0AA092927EFD500FC7A38 /* NetworkManager.swift in Sources */,
 				C7E0AA38292CB94300FC7A38 /* BaseHorizontalListController.swift in Sources */,
+				C7EAD414292E0D29009D5561 /* UIStackView+Extension.swift in Sources */,
 				C7E0AA122927F33900FC7A38 /* Notification+Extension.swift in Sources */,
 				C7E0AA30292A8CB300FC7A38 /* AppsCollectionHeaderView.swift in Sources */,
 				C7E0AA34292A922600FC7A38 /* AppsHeaderController.swift in Sources */,
+				C7EAD410292DFD2A009D5561 /* AppDetailDataSource.swift in Sources */,
 				C7E0AA182927F3D900FC7A38 /* Logger.swift in Sources */,
+				C7EAD412292E03CD009D5561 /* AppDetailsInfoCell.swift in Sources */,
 				C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */,
 				C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */,
 				C7E0AA202927F7F100FC7A38 /* Data+Extension.swift in Sources */,
