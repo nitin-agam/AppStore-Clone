@@ -55,6 +55,9 @@
 		C7EAD416292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD415292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift */; };
 		C7EAD418292F6C08009D5561 /* AppScreenshotsPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD417292F6C08009D5561 /* AppScreenshotsPreviewController.swift */; };
 		C7EAD41A292F6C4F009D5561 /* AppScreenshotPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD419292F6C4F009D5561 /* AppScreenshotPreviewCell.swift */; };
+		C7EAD41C292F94CE009D5561 /* AppReviewsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD41B292F94CE009D5561 /* AppReviewsCell.swift */; };
+		C7EAD41E292F950D009D5561 /* AppReviewListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD41D292F950D009D5561 /* AppReviewListController.swift */; };
+		C7EAD420292F9521009D5561 /* AppReviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD41F292F9521009D5561 /* AppReviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -104,6 +107,9 @@
 		C7EAD415292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotsPreviewCell.swift; sourceTree = "<group>"; };
 		C7EAD417292F6C08009D5561 /* AppScreenshotsPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotsPreviewController.swift; sourceTree = "<group>"; };
 		C7EAD419292F6C4F009D5561 /* AppScreenshotPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotPreviewCell.swift; sourceTree = "<group>"; };
+		C7EAD41B292F94CE009D5561 /* AppReviewsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewsCell.swift; sourceTree = "<group>"; };
+		C7EAD41D292F950D009D5561 /* AppReviewListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewListController.swift; sourceTree = "<group>"; };
+		C7EAD41F292F9521009D5561 /* AppReviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppReviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +279,9 @@
 				C7EAD415292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift */,
 				C7EAD417292F6C08009D5561 /* AppScreenshotsPreviewController.swift */,
 				C7EAD419292F6C4F009D5561 /* AppScreenshotPreviewCell.swift */,
+				C7EAD41B292F94CE009D5561 /* AppReviewsCell.swift */,
+				C7EAD41D292F950D009D5561 /* AppReviewListController.swift */,
+				C7EAD41F292F9521009D5561 /* AppReviewCell.swift */,
 			);
 			path = "App Details";
 			sourceTree = "<group>";
@@ -390,11 +399,14 @@
 				C7E0AA34292A922600FC7A38 /* AppsHeaderController.swift in Sources */,
 				C7EAD410292DFD2A009D5561 /* AppDetailDataSource.swift in Sources */,
 				C7E0AA182927F3D900FC7A38 /* Logger.swift in Sources */,
+				C7EAD41E292F950D009D5561 /* AppReviewListController.swift in Sources */,
 				C7EAD412292E03CD009D5561 /* AppDetailsInfoCell.swift in Sources */,
 				C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */,
+				C7EAD420292F9521009D5561 /* AppReviewCell.swift in Sources */,
 				C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */,
 				C7E0AA202927F7F100FC7A38 /* Data+Extension.swift in Sources */,
 				C7E0AA2A292A7A3E00FC7A38 /* AppsHorizontalListController.swift in Sources */,
+				C7EAD41C292F94CE009D5561 /* AppReviewsCell.swift in Sources */,
 				C7EAD416292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift in Sources */,
 				C7E0AA32292A920100FC7A38 /* AppsHeaderCollectionCell.swift in Sources */,
 				C7E0AA36292B766F00FC7A38 /* AppsHomeDataSource.swift in Sources */,

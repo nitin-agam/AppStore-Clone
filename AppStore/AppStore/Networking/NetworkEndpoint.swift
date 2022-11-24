@@ -13,6 +13,7 @@ enum NetworkEndpoint {
     case appsPaid
     case socialApps
     case lookup(appId: String)
+    case reviews(appId: String)
 }
 
 extension NetworkEndpoint {
@@ -44,6 +45,9 @@ extension NetworkEndpoint {
             
         case .lookup(let appId):
             return .makeStatic("https://itunes.apple.com/lookup?id=\(appId)")
+            
+        case .reviews(let appId):
+            return .makeStatic("https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?l=en&cc=us")
         }
     }
 }

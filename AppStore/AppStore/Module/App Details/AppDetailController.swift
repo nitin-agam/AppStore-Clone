@@ -23,8 +23,11 @@ class AppDetailController: BaseCollectionListController {
     private func initialSetup() {
         collectionView.register(cell: AppDetailsInfoCell.self)
         collectionView.register(cell: AppScreenshotsPreviewCell.self)
+        collectionView.register(cell: AppReviewsCell.self)
         collectionView.alwaysBounceVertical = true
         navigationItem.largeTitleDisplayMode = .never
+        
+        collectionView.contentInset = .init(top: 0, left: 0, bottom: 32, right: 0)
         
         dataSource.fetchRequest(appId: self.appId ?? "") {
             DispatchQueue.main.async {
@@ -52,14 +55,20 @@ extension AppDetailController: UICollectionViewDelegateFlowLayout {
             let cell = collectionView.dequeueReusableCell(withClass: AppDetailsInfoCell.self, for: indexPath)
             cell.configure(with: dataSource.object())
             return cell
+        } else if indexPath.item == 1 {
+            let cell = collectionView.dequeueReusableCell(withClass: AppScreenshotsPreviewCell.self, for: indexPath)
+            cell.configure(urlStrings: dataSource.object()?.screenshotUrls)
+            return cell
+        } else {
+            let cell = collectionView.dequeueReusableCell(withClass: AppReviewsCell.self, for: indexPath)
+            cell.configure(reviews: dataSource.reviews)
+            return cell
         }
-        
-        let cell = collectionView.dequeueReusableCell(withClass: AppScreenshotsPreviewCell.self, for: indexPath)
-        cell.configure(urlStrings: dataSource.object()?.screenshotUrls)
-        return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        var height: CGFloat = 0.0
         
         if indexPath.item == 0 {
             // calculating the necessary size for our cell somehow
@@ -67,10 +76,13 @@ extension AppDetailController: UICollectionViewDelegateFlowLayout {
             dummyInfoCell.configure(with: dataSource.object())
             dummyInfoCell.layoutIfNeeded()
             
-            let estimatedSize = dummyInfoCell.systemLayoutSizeFitting(.init(width: collectionView.frame.width, height: 1000))
-            return .init(width: collectionView.frame.width, height: estimatedSize.height)
+            height = dummyInfoCell.systemLayoutSizeFitting(.init(width: collectionView.frame.width, height: 1000)).height
+        } else if indexPath.item == 1 {
+            height = 500
+        } else {
+            height = 250
         }
         
-        return .init(width: collectionView.frame.width, height: 500)
+        return .init(width: collectionView.frame.width, height: height)
     }
 }

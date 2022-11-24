@@ -17,4 +17,13 @@ extension UILabel {
         self.textAlignment = alignment
         self.numberOfLines = lines
     }
+    
+    func addVerticalSpacing(_ spacing: CGFloat = 6) {
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.alignment = textAlignment
+        paragraphStyle.lineSpacing = spacing
+        paragraphStyle.lineBreakMode = .byTruncatingTail
+        let attributedString = NSAttributedString(string: text ?? "", attributes: [.paragraphStyle: paragraphStyle])
+        attributedText = attributedString
+    }
 }
