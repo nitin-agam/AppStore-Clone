@@ -33,7 +33,7 @@ class AppDetailDataSource {
     
     func numberOfRows() -> Int {
         guard let result = searchResult else { return 0 }
-        return result.results.count == 0 ? 0 : 1
+        return result.results.count == 0 ? 0 : 2
     }
     
     func object() -> AppData? {

@@ -52,6 +52,9 @@
 		C7EAD410292DFD2A009D5561 /* AppDetailDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD40F292DFD2A009D5561 /* AppDetailDataSource.swift */; };
 		C7EAD412292E03CD009D5561 /* AppDetailsInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD411292E03CD009D5561 /* AppDetailsInfoCell.swift */; };
 		C7EAD414292E0D29009D5561 /* UIStackView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD413292E0D29009D5561 /* UIStackView+Extension.swift */; };
+		C7EAD416292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD415292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift */; };
+		C7EAD418292F6C08009D5561 /* AppScreenshotsPreviewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD417292F6C08009D5561 /* AppScreenshotsPreviewController.swift */; };
+		C7EAD41A292F6C4F009D5561 /* AppScreenshotPreviewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7EAD419292F6C4F009D5561 /* AppScreenshotPreviewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +101,9 @@
 		C7EAD40F292DFD2A009D5561 /* AppDetailDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailDataSource.swift; sourceTree = "<group>"; };
 		C7EAD411292E03CD009D5561 /* AppDetailsInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDetailsInfoCell.swift; sourceTree = "<group>"; };
 		C7EAD413292E0D29009D5561 /* UIStackView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIStackView+Extension.swift"; sourceTree = "<group>"; };
+		C7EAD415292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotsPreviewCell.swift; sourceTree = "<group>"; };
+		C7EAD417292F6C08009D5561 /* AppScreenshotsPreviewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotsPreviewController.swift; sourceTree = "<group>"; };
+		C7EAD419292F6C4F009D5561 /* AppScreenshotPreviewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppScreenshotPreviewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +270,9 @@
 				C7E0AA3C292CC12000FC7A38 /* AppDetailController.swift */,
 				C7EAD40F292DFD2A009D5561 /* AppDetailDataSource.swift */,
 				C7EAD411292E03CD009D5561 /* AppDetailsInfoCell.swift */,
+				C7EAD415292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift */,
+				C7EAD417292F6C08009D5561 /* AppScreenshotsPreviewController.swift */,
+				C7EAD419292F6C4F009D5561 /* AppScreenshotPreviewCell.swift */,
 			);
 			path = "App Details";
 			sourceTree = "<group>";
@@ -352,7 +361,9 @@
 			files = (
 				C7E0AA3D292CC12000FC7A38 /* AppDetailController.swift in Sources */,
 				C7E0AA2C292A7A8400FC7A38 /* AppHorizontalRowCell.swift in Sources */,
+				C7EAD418292F6C08009D5561 /* AppScreenshotsPreviewController.swift in Sources */,
 				C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */,
+				C7EAD41A292F6C4F009D5561 /* AppScreenshotPreviewCell.swift in Sources */,
 				C7E0AA222927F82D00FC7A38 /* SearchHomeDataSource.swift in Sources */,
 				C7E0AA072927EFC900FC7A38 /* NetworkEndpoint.swift in Sources */,
 				C7E0A9EC2927B9DC00FC7A38 /* AppsHomeController.swift in Sources */,
@@ -384,6 +395,7 @@
 				C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */,
 				C7E0AA202927F7F100FC7A38 /* Data+Extension.swift in Sources */,
 				C7E0AA2A292A7A3E00FC7A38 /* AppsHorizontalListController.swift in Sources */,
+				C7EAD416292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift in Sources */,
 				C7E0AA32292A920100FC7A38 /* AppsHeaderCollectionCell.swift in Sources */,
 				C7E0AA36292B766F00FC7A38 /* AppsHomeDataSource.swift in Sources */,
 				C7E0A9E92927B9B600FC7A38 /* TodayHomeController.swift in Sources */,
