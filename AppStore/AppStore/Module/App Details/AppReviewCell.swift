@@ -9,21 +9,7 @@ import UIKit
 
 class AppReviewCell: BaseCollectionCell {
     
-    private let starsStackView: UIStackView = {
-        var arrangedSubviews = [UIView]()
-        (0..<5).forEach({ (_) in
-            let imageView = UIImageView(image: UIImage(systemName: "star.fill"))
-            imageView.tintColor = .systemYellow
-            imageView.sizeConstraints(width: 20, height: 20)
-            arrangedSubviews.append(imageView)
-        })
-        
-        arrangedSubviews.append(UIView()) // adding it to fill remaining space
-        
-        let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
-        return stackView
-    }()
-    
+    private let ratingLabel = UILabel(text: "", font: .semibold(18))
     private let titleLabel = UILabel(text: "Review title", font: .semibold(18))
     private let authorLabel = UILabel(text: "Author name", font: .regular(16), textColor: .secondaryLabel, alignment: .right)
     private let starsLabel = UILabel(text: "Ratings", font: .regular(14))
@@ -36,9 +22,10 @@ class AppReviewCell: BaseCollectionCell {
         backgroundColor = .systemGray6
         layer.cornerRadius = 16
         clipsToBounds = true
+        ratingLabel.textColor = .systemYellow
         
         let topRowStack = UIStackView(arrangedSubviews: [titleLabel, authorLabel], customSpacing: 8)
-        let stackView = VerticalStack(arrangedSubviews: [topRowStack, starsStackView, bodyLabel], spacing: 12)
+        let stackView = VerticalStack(arrangedSubviews: [topRowStack, ratingLabel, bodyLabel], spacing: 12)
         
         titleLabel.setContentCompressionResistancePriority(.init(0), for: .horizontal)
         
@@ -53,12 +40,7 @@ class AppReviewCell: BaseCollectionCell {
         authorLabel.text = entry.author.name.label
         bodyLabel.text = entry.content.label
         
-        for (index, view) in starsStackView.arrangedSubviews.enumerated() {
-            if let ratingInt = Int(entry.rating.label) {
-                view.alpha = index >= ratingInt ? 0 : 1
-            }
-        }
-        
+        ratingLabel.text = String(repeating: "★", count: Int(entry.rating.label) ?? 0)
         bodyLabel.addVerticalSpacing(3)
     }
 }
