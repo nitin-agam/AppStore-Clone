@@ -18,7 +18,7 @@ class AppReviewCell: BaseCollectionCell {
             arrangedSubviews.append(imageView)
         })
         
-        arrangedSubviews.append(UIView())
+        arrangedSubviews.append(UIView()) // adding it to fill remaining space
         
         let stackView = UIStackView(arrangedSubviews: arrangedSubviews)
         return stackView
