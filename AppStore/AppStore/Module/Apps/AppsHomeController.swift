@@ -81,8 +81,7 @@ extension AppsHomeController: UICollectionViewDelegateFlowLayout {
         
         cell.controller.didTapFeed = { [weak self] feedResult in
             guard let self = self, let feed = feedResult else { return }
-            let controller = AppDetailController()
-            controller.appId = feed.id
+            let controller = AppDetailController(appId: feed.id)
             self.navigationController?.pushViewController(controller, animated: true)
         }
         

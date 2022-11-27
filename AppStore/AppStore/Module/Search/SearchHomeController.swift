@@ -69,6 +69,15 @@ extension SearchHomeController: UICollectionViewDelegateFlowLayout {
         cell.configure(with: dataSource.object(at: indexPath))
         return cell
     }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let feed = dataSource.object(at: indexPath) else {
+            return
+        }
+        
+        let controller = AppDetailController(appId: String(feed.trackId))
+        self.navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension SearchHomeController: UISearchBarDelegate {
@@ -79,9 +88,11 @@ extension SearchHomeController: UISearchBarDelegate {
                                                 repeats: false,
                                                 block: { [weak self] _ in
             guard let self = self else { return }
-            self.dataSource.fetchRequest(searchText: searchText) {
-                DispatchQueue.main.async {
-                    self.collectionView.reloadData()
+            self.dataSource.fetchRequest(searchText: searchText) { isSuccess in
+                if isSuccess {
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
                 }
             }
         })

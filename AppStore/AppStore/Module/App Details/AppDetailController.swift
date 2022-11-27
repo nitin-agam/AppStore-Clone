@@ -11,8 +11,17 @@ private let reuseIdentifier = "Cell"
 
 class AppDetailController: BaseCollectionListController {
 
+    init(appId: String) {
+        self.appId = appId
+        super.init()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     private let dataSource = AppDetailDataSource()
-    var appId: String?
+    private var appId: String?
 
     
     override func viewDidLoad() {

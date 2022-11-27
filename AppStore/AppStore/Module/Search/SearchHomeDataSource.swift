@@ -11,22 +11,22 @@ class SearchHomeDataSource {
     
     var searchResult: SearchResult?
     
-    func fetchRequest(searchText: String, _ completion: (() -> ())?) {
+    func fetchRequest(searchText: String, _ completion: ((_ isSuccess: Bool) -> ())?) {
         
         Networking.sendRequest(.searchApp(name: searchText)) { result in
             switch result {
             case .success(let data):
                 do {
                     self.searchResult = try JSONDecoder().decode(SearchResult.self, from: data)
+                    completion?(true)
                 } catch let jsonError {
                     Log.log("failed to parse search result with error: \(jsonError)", type: .error)
+                    completion?(false)
                 }
-                
-                completion?()
                 
             case .failure(let error):
                 Log.log("failed to fetch search result with error: \(error.title)", type: .error)
-                completion?()
+                completion?(false)
             }
         }
     }
@@ -53,14 +53,15 @@ struct SearchResult: Decodable {
 }
 
 struct AppData: Decodable {
+    let trackId: Int
     let trackName: String
     let primaryGenreName: String
     let averageUserRating: Float
     let screenshotUrls: [String]
     let artworkUrl100: String
-    let formattedPrice: String
-    let description: String
-    let releaseNotes: String?
-    let artistName: String
-    let version: String
+    var formattedPrice: String?
+    var description: String?
+    var releaseNotes: String?
+    var artistName: String?
+    var version: String?
 }
