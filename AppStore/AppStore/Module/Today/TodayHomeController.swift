@@ -17,6 +17,7 @@ class TodayHomeController: BaseCollectionListController {
     }()
     
     private let dataSource = TodayFeedsDataSource()
+    var startingFrame: CGRect?
     
     
     override func viewDidLoad() {
@@ -31,8 +32,8 @@ class TodayHomeController: BaseCollectionListController {
         collectionView.register(cell: TodayFeedCell.self)
         collectionView.backgroundColor = UIColor.systemGray6
         
-     //   view.addSubview(activityIndicator)
-     //   activityIndicator.fillSuperviewConstraints()
+        //   view.addSubview(activityIndicator)
+        //   activityIndicator.fillSuperviewConstraints()
     }
 }
 
@@ -58,5 +59,50 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         .init(top: 20, left: 20, bottom: 20, right: 20)
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        guard let cell = collectionView.cellForItem(at: indexPath) as? TodayFeedCell else {
+            return
+        }
+        
+        guard let startingFrame = cell.superview?.convert(cell.frame, to: nil) else {
+            return
+        }
+        
+        let redView = UIView()
+        redView.backgroundColor = .red
+        view.addSubview(redView)
+        redView.frame = startingFrame
+        redView.layer.cornerRadius = 16
+        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRedTapGesture(_:))))
+        
+        self.startingFrame = startingFrame
+        
+        UIView.animate(withDuration: 0.7,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: .curveEaseOut) {
+            redView.frame = self.view.frame
+            self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height
+        }
+    }
+    
+    @objc private func handleRedTapGesture(_ gesture: UITapGestureRecognizer) {
+        UIView.animate(withDuration: 0.7,
+                       delay: 0,
+                       usingSpringWithDamping: 0.7,
+                       initialSpringVelocity: 0.7,
+                       options: .curveEaseOut) {
+            gesture.view?.frame = self.startingFrame ?? .zero
+            
+            if let tabBarFrame = self.tabBarController?.tabBar.frame {
+                self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height - tabBarFrame.height
+            }
+        } completion: { _ in
+            gesture.view?.removeFromSuperview()
+        }
     }
 }
