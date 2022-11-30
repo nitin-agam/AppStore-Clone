@@ -9,6 +9,11 @@
 /* Begin PBXBuildFile section */
 		C7D3A8C729377BCB002DBB5C /* TodayFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */; };
 		C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */; };
+		C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */; };
+		C7D3A8CD2937959B002DBB5C /* AppFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */; };
+		C7D3A8CF293795A7002DBB5C /* BaseTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CE293795A7002DBB5C /* BaseTableCell.swift */; };
+		C7D3A8D129379717002DBB5C /* UITableView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8D029379717002DBB5C /* UITableView+Extension.swift */; };
+		C7D3A8D32937A709002DBB5C /* AppFullScreenHeaderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8D22937A709002DBB5C /* AppFullScreenHeaderCell.swift */; };
 		C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9CC2927AF1600FC7A38 /* AppDelegate.swift */; };
 		C7E0A9D62927AF1900FC7A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E0A9D52927AF1900FC7A38 /* Assets.xcassets */; };
 		C7E0A9D92927AF1900FC7A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E0A9D72927AF1900FC7A38 /* LaunchScreen.storyboard */; };
@@ -65,6 +70,11 @@
 /* Begin PBXFileReference section */
 		C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedCell.swift; sourceTree = "<group>"; };
 		C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedsDataSource.swift; sourceTree = "<group>"; };
+		C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenController.swift; sourceTree = "<group>"; };
+		C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
+		C7D3A8CE293795A7002DBB5C /* BaseTableCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableCell.swift; sourceTree = "<group>"; };
+		C7D3A8D029379717002DBB5C /* UITableView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+Extension.swift"; sourceTree = "<group>"; };
+		C7D3A8D22937A709002DBB5C /* AppFullScreenHeaderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenHeaderCell.swift; sourceTree = "<group>"; };
 		C7E0A9C92927AF1600FC7A38 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E0A9CC2927AF1600FC7A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7E0A9D52927AF1900FC7A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -179,6 +189,7 @@
 				C7E0A9EF2927C91100FC7A38 /* BaseCollectionCell.swift */,
 				C7E0AA23292A636A00FC7A38 /* BaseCollectionListController.swift */,
 				C7E0AA37292CB94300FC7A38 /* BaseHorizontalListController.swift */,
+				C7D3A8CE293795A7002DBB5C /* BaseTableCell.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -200,6 +211,9 @@
 				C7E0A9E82927B9B600FC7A38 /* TodayHomeController.swift */,
 				C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */,
 				C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */,
+				C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */,
+				C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */,
+				C7D3A8D22937A709002DBB5C /* AppFullScreenHeaderCell.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -242,6 +256,7 @@
 				C7E0AA27292A787600FC7A38 /* UILabel+Extension.swift */,
 				C7E0AA2D292A84D000FC7A38 /* UIImageView+Extension.swift */,
 				C7EAD413292E0D29009D5561 /* UIStackView+Extension.swift */,
+				C7D3A8D029379717002DBB5C /* UITableView+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -378,6 +393,7 @@
 				C7E0AA2C292A7A8400FC7A38 /* AppHorizontalRowCell.swift in Sources */,
 				C7EAD418292F6C08009D5561 /* AppScreenshotsPreviewController.swift in Sources */,
 				C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */,
+				C7D3A8CD2937959B002DBB5C /* AppFullScreenDescriptionCell.swift in Sources */,
 				C7EAD41A292F6C4F009D5561 /* AppScreenshotPreviewCell.swift in Sources */,
 				C7E0AA222927F82D00FC7A38 /* SearchHomeDataSource.swift in Sources */,
 				C7E0AA072927EFC900FC7A38 /* NetworkEndpoint.swift in Sources */,
@@ -390,19 +406,23 @@
 				C7E0A9EE2927B9FE00FC7A38 /* SearchHomeController.swift in Sources */,
 				C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */,
 				C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */,
+				C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */,
 				C7E0AA012927E72F00FC7A38 /* UIFont+Extension.swift in Sources */,
 				C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */,
 				C7E0AA24292A636A00FC7A38 /* BaseCollectionListController.swift in Sources */,
 				C7E0AA2E292A84D000FC7A38 /* UIImageView+Extension.swift in Sources */,
 				C7E0AA1C2927F66800FC7A38 /* NetworkKeys.swift in Sources */,
+				C7D3A8D129379717002DBB5C /* UITableView+Extension.swift in Sources */,
 				C7E0AA0B2927F25400FC7A38 /* NetworkError.swift in Sources */,
 				C7E0A9E72927B98B00FC7A38 /* AppTabBarController.swift in Sources */,
 				C7E0AA26292A77A900FC7A38 /* AppsGroupCollectionCell.swift in Sources */,
 				C7E0AA092927EFD500FC7A38 /* NetworkManager.swift in Sources */,
+				C7D3A8CF293795A7002DBB5C /* BaseTableCell.swift in Sources */,
 				C7E0AA38292CB94300FC7A38 /* BaseHorizontalListController.swift in Sources */,
 				C7EAD414292E0D29009D5561 /* UIStackView+Extension.swift in Sources */,
 				C7E0AA122927F33900FC7A38 /* Notification+Extension.swift in Sources */,
 				C7E0AA30292A8CB300FC7A38 /* AppsCollectionHeaderView.swift in Sources */,
+				C7D3A8D32937A709002DBB5C /* AppFullScreenHeaderCell.swift in Sources */,
 				C7E0AA34292A922600FC7A38 /* AppsHeaderController.swift in Sources */,
 				C7EAD410292DFD2A009D5561 /* AppDetailDataSource.swift in Sources */,
 				C7E0AA182927F3D900FC7A38 /* Logger.swift in Sources */,

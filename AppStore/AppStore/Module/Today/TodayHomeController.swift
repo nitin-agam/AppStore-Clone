@@ -17,7 +17,12 @@ class TodayHomeController: BaseCollectionListController {
     }()
     
     private let dataSource = TodayFeedsDataSource()
-    var startingFrame: CGRect?
+    private var startingFrame: CGRect?
+    private var appFullScreenController: AppFullScreenController?
+    private var topConstraint: NSLayoutConstraint?
+    private var leadingConstraint: NSLayoutConstraint?
+    private var widthConstraint: NSLayoutConstraint?
+    private var heightConstraint: NSLayoutConstraint?
     
     
     override func viewDidLoad() {
@@ -31,9 +36,6 @@ class TodayHomeController: BaseCollectionListController {
         
         collectionView.register(cell: TodayFeedCell.self)
         collectionView.backgroundColor = UIColor.systemGray6
-        
-        //   view.addSubview(activityIndicator)
-        //   activityIndicator.fillSuperviewConstraints()
     }
 }
 
@@ -49,7 +51,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        .init(width: collectionView.frame.width - 40, height: 400)
+        .init(width: collectionView.frame.width - 40, height: 450)
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -71,38 +73,68 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
             return
         }
         
-        let redView = UIView()
-        redView.backgroundColor = .red
-        view.addSubview(redView)
-        redView.frame = startingFrame
-        redView.layer.cornerRadius = 16
-        redView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleRedTapGesture(_:))))
+        let fullScreenController = AppFullScreenController()
+        let fullScreenView = fullScreenController.view!
+        view.addSubview(fullScreenView)
+        fullScreenView.layer.cornerRadius = 16
+        fullScreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleFullScreenControllerTapGesture(_:))))
         
+        appFullScreenController = fullScreenController
         self.startingFrame = startingFrame
+        addChild(fullScreenController)
+        
+        fullScreenView.translatesAutoresizingMaskIntoConstraints = false
+        
+        topConstraint = fullScreenView.topAnchor.constraint(equalTo: view.topAnchor, constant: startingFrame.origin.y)
+        leadingConstraint = fullScreenView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: startingFrame.origin.x)
+        widthConstraint = fullScreenView.widthAnchor.constraint(equalToConstant: startingFrame.width)
+        heightConstraint = fullScreenView.heightAnchor.constraint(equalToConstant: startingFrame.height)
+        
+        [topConstraint, leadingConstraint, widthConstraint, heightConstraint].forEach({ $0?.isActive = true })
+        
+        self.view.layoutIfNeeded()
         
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut) {
-            redView.frame = self.view.frame
+            
+            self.topConstraint?.constant = 0
+            self.leadingConstraint?.constant = 0
+            self.widthConstraint?.constant = self.view.frame.width
+            self.heightConstraint?.constant = self.view.frame.height
+            
+            self.view.layoutIfNeeded()
+            
             self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height
         }
     }
     
-    @objc private func handleRedTapGesture(_ gesture: UITapGestureRecognizer) {
+    @objc private func handleFullScreenControllerTapGesture(_ gesture: UITapGestureRecognizer) {
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut) {
-            gesture.view?.frame = self.startingFrame ?? .zero
+            
+            guard let frame = self.startingFrame else { return }
+            
+            self.topConstraint?.constant = frame.origin.y
+            self.leadingConstraint?.constant = frame.origin.x
+            self.widthConstraint?.constant = frame.width
+            self.heightConstraint?.constant = frame.height
+            
+            self.view.layoutIfNeeded()
+            
+            self.appFullScreenController?.tableView.contentOffset = .zero
             
             if let tabBarFrame = self.tabBarController?.tabBar.frame {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height - tabBarFrame.height
             }
         } completion: { _ in
             gesture.view?.removeFromSuperview()
+            self.appFullScreenController?.removeFromParent()
         }
     }
 }
