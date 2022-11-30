@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7D3A8C729377BCB002DBB5C /* TodayFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */; };
+		C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */; };
 		C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9CC2927AF1600FC7A38 /* AppDelegate.swift */; };
 		C7E0A9D62927AF1900FC7A38 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C7E0A9D52927AF1900FC7A38 /* Assets.xcassets */; };
 		C7E0A9D92927AF1900FC7A38 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C7E0A9D72927AF1900FC7A38 /* LaunchScreen.storyboard */; };
@@ -61,6 +63,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedCell.swift; sourceTree = "<group>"; };
+		C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedsDataSource.swift; sourceTree = "<group>"; };
 		C7E0A9C92927AF1600FC7A38 /* AppStore.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppStore.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C7E0A9CC2927AF1600FC7A38 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C7E0A9D52927AF1900FC7A38 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -194,6 +198,8 @@
 			isa = PBXGroup;
 			children = (
 				C7E0A9E82927B9B600FC7A38 /* TodayHomeController.swift */,
+				C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */,
+				C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -377,6 +383,7 @@
 				C7E0AA072927EFC900FC7A38 /* NetworkEndpoint.swift in Sources */,
 				C7E0A9EC2927B9DC00FC7A38 /* AppsHomeController.swift in Sources */,
 				C7E0AA1E2927F6C900FC7A38 /* RequestFactory.swift in Sources */,
+				C7D3A8C729377BCB002DBB5C /* TodayFeedCell.swift in Sources */,
 				C7E0AA1A2927F4E700FC7A38 /* String+Extension.swift in Sources */,
 				C7E0A9FF2927DD1A00FC7A38 /* VerticalStack.swift in Sources */,
 				C7E0AA3A292CB9A600FC7A38 /* SnappingCollectionLayout.swift in Sources */,
@@ -408,6 +415,7 @@
 				C7E0AA2A292A7A3E00FC7A38 /* AppsHorizontalListController.swift in Sources */,
 				C7EAD41C292F94CE009D5561 /* AppReviewsCell.swift in Sources */,
 				C7EAD416292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift in Sources */,
+				C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */,
 				C7E0AA32292A920100FC7A38 /* AppsHeaderCollectionCell.swift in Sources */,
 				C7E0AA36292B766F00FC7A38 /* AppsHomeDataSource.swift in Sources */,
 				C7E0A9E92927B9B600FC7A38 /* TodayHomeController.swift in Sources */,
