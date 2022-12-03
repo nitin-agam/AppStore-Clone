@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C7A501EE293BD83C002E41C7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501ED293BD83C002E41C7 /* TodayItem.swift */; };
 		C7D3A8C729377BCB002DBB5C /* TodayFeedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */; };
 		C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */; };
 		C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */; };
@@ -68,6 +69,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C7A501ED293BD83C002E41C7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		C7D3A8C629377BCB002DBB5C /* TodayFeedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedCell.swift; sourceTree = "<group>"; };
 		C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedsDataSource.swift; sourceTree = "<group>"; };
 		C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenController.swift; sourceTree = "<group>"; };
@@ -214,6 +216,7 @@
 				C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */,
 				C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */,
 				C7D3A8D22937A709002DBB5C /* AppFullScreenHeaderCell.swift */,
+				C7A501ED293BD83C002E41C7 /* TodayItem.swift */,
 			);
 			path = Today;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				C7D3A8D129379717002DBB5C /* UITableView+Extension.swift in Sources */,
 				C7E0AA0B2927F25400FC7A38 /* NetworkError.swift in Sources */,
 				C7E0A9E72927B98B00FC7A38 /* AppTabBarController.swift in Sources */,
+				C7A501EE293BD83C002E41C7 /* TodayItem.swift in Sources */,
 				C7E0AA26292A77A900FC7A38 /* AppsGroupCollectionCell.swift in Sources */,
 				C7E0AA092927EFD500FC7A38 /* NetworkManager.swift in Sources */,
 				C7D3A8CF293795A7002DBB5C /* BaseTableCell.swift in Sources */,

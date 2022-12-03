@@ -24,6 +24,10 @@ class TodayHomeController: BaseCollectionListController {
     private var widthConstraint: NSLayoutConstraint?
     private var heightConstraint: NSLayoutConstraint?
     
+    private let items = [
+        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", imageName: "garden", description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white),
+        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", imageName: "holiday", description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9838578105, green: 0.9588007331, blue: 0.7274674177, alpha: 1))]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,9 +35,7 @@ class TodayHomeController: BaseCollectionListController {
     }
     
     private func initialSetup() {
-        
         navigationController?.isNavigationBarHidden = true
-        
         collectionView.register(cell: TodayFeedCell.self)
         collectionView.backgroundColor = UIColor.systemGray6
     }
@@ -43,7 +45,7 @@ class TodayHomeController: BaseCollectionListController {
 extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        20
+        items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -56,6 +58,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withClass: TodayFeedCell.self, for: indexPath)
+        cell.configure(with: items[indexPath.item])
         return cell
     }
     
@@ -77,9 +80,13 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         let fullScreenView = fullScreenController.view!
         view.addSubview(fullScreenView)
         fullScreenView.layer.cornerRadius = 16
-        fullScreenView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(handleFullScreenControllerTapGesture(_:))))
         
         appFullScreenController = fullScreenController
+        
+        appFullScreenController?.dismissHandler = {
+            self.removeFullScreenController()
+        }
+        
         self.startingFrame = startingFrame
         addChild(fullScreenController)
         
@@ -111,7 +118,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         }
     }
     
-    @objc private func handleFullScreenControllerTapGesture(_ gesture: UITapGestureRecognizer) {
+    private func removeFullScreenController() {
         UIView.animate(withDuration: 0.7,
                        delay: 0,
                        usingSpringWithDamping: 0.7,
@@ -133,7 +140,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height - tabBarFrame.height
             }
         } completion: { _ in
-            gesture.view?.removeFromSuperview()
+            self.appFullScreenController?.view?.removeFromSuperview()
             self.appFullScreenController?.removeFromParent()
         }
     }

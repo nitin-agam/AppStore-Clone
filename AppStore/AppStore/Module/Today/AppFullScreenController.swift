@@ -9,6 +9,8 @@ import UIKit
 
 class AppFullScreenController: UITableViewController {
 
+    var dismissHandler: (() -> ())?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,8 +22,9 @@ class AppFullScreenController: UITableViewController {
         tableView.showsVerticalScrollIndicator = false
     }
     
-    @objc private func handleCloseTapped() {
-        
+    @objc private func handleCloseTapped(_ button: UIButton) {
+        button.isHidden = true
+        dismissHandler?()
     }
 }
 
