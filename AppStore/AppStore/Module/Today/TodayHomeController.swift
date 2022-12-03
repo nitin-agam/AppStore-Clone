@@ -82,7 +82,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         fullScreenView.layer.cornerRadius = 16
         
         appFullScreenController = fullScreenController
-        
+        appFullScreenController?.todayItem = items[indexPath.item]
         appFullScreenController?.dismissHandler = {
             self.removeFullScreenController()
         }
@@ -115,6 +115,10 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
             self.view.layoutIfNeeded()
             
             self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height
+            
+            guard let cell = self.appFullScreenController?.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
+            cell.todayCollectionCell.topConstraint?.constant = 48
+            cell.layoutIfNeeded()
         }
     }
     
@@ -135,6 +139,10 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
             self.view.layoutIfNeeded()
             
             self.appFullScreenController?.tableView.contentOffset = .zero
+            
+            guard let cell = self.appFullScreenController?.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
+            cell.todayCollectionCell.topConstraint?.constant = 24
+            cell.layoutIfNeeded()
             
             if let tabBarFrame = self.tabBarController?.tabBar.frame {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height - tabBarFrame.height

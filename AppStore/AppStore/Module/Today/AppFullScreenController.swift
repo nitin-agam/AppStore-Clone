@@ -10,6 +10,7 @@ import UIKit
 class AppFullScreenController: UITableViewController {
 
     var dismissHandler: (() -> ())?
+    var todayItem: TodayItem?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,6 +21,12 @@ class AppFullScreenController: UITableViewController {
         tableView.register(cell: AppFullScreenDescriptionCell.self)
         tableView.register(cell: AppFullScreenHeaderCell.self)
         tableView.showsVerticalScrollIndicator = false
+        tableView.contentInsetAdjustmentBehavior = .never
+        
+        #warning("update this code as it's will be deprecated soon.")
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene
+        let statusBarHeight = window?.statusBarManager?.statusBarFrame.height ?? 0
+        tableView.contentInset = .init(top: 0, left: 0, bottom: statusBarHeight, right: 0)
     }
     
     @objc private func handleCloseTapped(_ button: UIButton) {
@@ -46,6 +53,7 @@ extension AppFullScreenController {
         if indexPath.row == 0 {
             let cell = tableView.dequeueReusableCell(withClass: AppFullScreenHeaderCell.self, for: indexPath)
             cell.closeButton.addTarget(self, action: #selector(handleCloseTapped), for: .touchUpInside)
+            cell.configure(with: self.todayItem)
             return cell
         }
         
