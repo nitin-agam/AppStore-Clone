@@ -11,8 +11,9 @@ class TodayHomeController: BaseCollectionListController {
     
     private let activityIndicator: UIActivityIndicatorView = {
         let indicator = UIActivityIndicatorView(style: .large)
-        indicator.tintColor = .darkGray
+        indicator.tintColor = .systemGray
         indicator.hidesWhenStopped = true
+        indicator.startAnimating()
         return indicator
     }()
     
@@ -24,10 +25,6 @@ class TodayHomeController: BaseCollectionListController {
     private var widthConstraint: NSLayoutConstraint?
     private var heightConstraint: NSLayoutConstraint?
     
-    private let items = [
-        TodayItem.init(category: "LIFE HACK", title: "Utilizing your Time", imageName: "garden", description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white),
-        TodayItem.init(category: "HOLIDAYS", title: "Travel on a Budget", imageName: "holiday", description: "Find out all you need to know on how to travel without packing everything!", backgroundColor: #colorLiteral(red: 0.9838578105, green: 0.9588007331, blue: 0.7274674177, alpha: 1))]
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +32,22 @@ class TodayHomeController: BaseCollectionListController {
     }
     
     private func initialSetup() {
+        
+        view.addSubview(activityIndicator)
+        
+        activityIndicator.centerInSuperviewConstraints()
+        
         navigationController?.isNavigationBarHidden = true
-        collectionView.register(cell: TodayFeedCell.self)
+        collectionView.register(cell: TodayAppCell.self)
+        collectionView.register(cell: TodayAppGroupCell.self)
         collectionView.backgroundColor = UIColor.systemGray6
+        
+        dataSource.fetchData {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.collectionView.reloadData()
+            }
+        }
     }
 }
 
@@ -45,7 +55,7 @@ class TodayHomeController: BaseCollectionListController {
 extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        items.count
+        dataSource.items.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -57,9 +67,19 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withClass: TodayFeedCell.self, for: indexPath)
-        cell.configure(with: items[indexPath.item])
-        return cell
+        let item = dataSource.items[indexPath.item]
+        
+        switch item.itemType {
+        case .single:
+            let cell = collectionView.dequeueReusableCell(withClass: TodayAppCell.self, for: indexPath)
+            cell.configure(with: item)
+            return cell
+            
+        case .multiple:
+            let cell = collectionView.dequeueReusableCell(withClass: TodayAppGroupCell.self, for: indexPath)
+            cell.configure(with: item)
+            return cell
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -68,7 +88,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
-        guard let cell = collectionView.cellForItem(at: indexPath) as? TodayFeedCell else {
+        guard let cell = collectionView.cellForItem(at: indexPath) as? TodayAppCell else {
             return
         }
         
@@ -81,8 +101,10 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         view.addSubview(fullScreenView)
         fullScreenView.layer.cornerRadius = 16
         
+        let item = dataSource.items[indexPath.item]
+        
         appFullScreenController = fullScreenController
-        appFullScreenController?.todayItem = items[indexPath.item]
+        appFullScreenController?.todayItem = item
         appFullScreenController?.dismissHandler = {
             self.removeFullScreenController()
         }

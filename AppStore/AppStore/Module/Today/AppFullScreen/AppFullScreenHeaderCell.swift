@@ -9,7 +9,7 @@ import UIKit
 
 class AppFullScreenHeaderCell: BaseTableCell {
     
-    let todayCollectionCell = TodayFeedCell()
+    let todayCollectionCell = TodayAppCell()
     
     let closeButton: UIButton = {
         let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))

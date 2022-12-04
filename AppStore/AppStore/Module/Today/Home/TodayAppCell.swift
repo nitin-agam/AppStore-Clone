@@ -1,13 +1,13 @@
 //
-//  TodayFeedCell.swift
+//  TodayAppCell.swift
 //  AppStore
 //
-//  Created by Nitin Aggarwal on 30/11/22.
+//  Created by Nitin Aggarwal on 04/12/22.
 //
 
 import UIKit
 
-class TodayFeedCell: BaseCollectionCell {
+class TodayAppCell: BaseCollectionCell {
     
     private let categoryLabel = UILabel(text: "", font: .bold(20))
     private let titleLabel = UILabel(text: "", font: .bold(25))
@@ -19,7 +19,6 @@ class TodayFeedCell: BaseCollectionCell {
     override func initialSetup() {
         super.initialSetup()
         
-        backgroundColor = .white
         layer.cornerRadius = 16
         clipsToBounds = true
         
@@ -38,13 +37,11 @@ class TodayFeedCell: BaseCollectionCell {
     }
     
     func configure(with item: TodayItem?) {
-        
         guard let item = item else { return }
-        
         categoryLabel.text = item.category
         titleLabel.text = item.title
         descriptionLabel.text = item.description
-        imageView.image = UIImage(named: item.imageName)
+        imageView.image = UIImage(named: item.imageName ?? "")
         backgroundColor = item.backgroundColor
     }
 }

@@ -8,9 +8,17 @@
 import UIKit
 
 struct TodayItem {
+    
+    enum ItemType {
+        case single
+        case multiple
+    }
+    
     let category: String
     let title: String
-    let imageName: String
-    let description: String
+    let imageName: String?
+    let description: String?
     let backgroundColor: UIColor
+    let result: [FeedResult]?
+    let itemType: ItemType
 }
