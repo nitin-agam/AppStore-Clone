@@ -12,7 +12,7 @@ class TodayAppGroupCell: BaseCollectionCell {
     private let categoryLabel = UILabel(text: "", font: .bold(20))
     private let titleLabel = UILabel(text: "", font: .bold(25))
     var topConstraint: NSLayoutConstraint?
-    private let controller = TodayAppGroupController()
+    private let controller = TodayAppGroupController(mode: .small)
     
     
     override func initialSetup() {

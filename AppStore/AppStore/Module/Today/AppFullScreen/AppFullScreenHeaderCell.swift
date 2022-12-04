@@ -13,8 +13,9 @@ class AppFullScreenHeaderCell: BaseTableCell {
     
     let closeButton: UIButton = {
         let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))
-        let button = UIButton(type: .system)
+        let button = UIButton()
         button.setImage(image, for: .normal)
+        button.tintColor = .systemGray
         return button
     }()
     

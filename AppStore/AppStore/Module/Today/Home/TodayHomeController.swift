@@ -88,6 +88,17 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
+        let item = dataSource.items[indexPath.item]
+        
+        // app group cell
+        if item.itemType == .multiple {
+            let appGroupController = TodayAppGroupController(mode: .full)
+            appGroupController.apps = item.result
+            appGroupController.modalPresentationStyle = .fullScreen
+            present(appGroupController, animated: true)
+            return
+        }
+        
         guard let cell = collectionView.cellForItem(at: indexPath) as? TodayAppCell else {
             return
         }
@@ -100,8 +111,6 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         let fullScreenView = fullScreenController.view!
         view.addSubview(fullScreenView)
         fullScreenView.layer.cornerRadius = 16
-        
-        let item = dataSource.items[indexPath.item]
         
         appFullScreenController = fullScreenController
         appFullScreenController?.todayItem = item
