@@ -41,4 +41,16 @@ class TodayAppCell: TodayAppBaseCell {
         imageView.image = UIImage(named: item.imageName ?? "")
         backgroundColor = item.backgroundColor
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cleanUp()
+    }
+    
+    private func cleanUp() {
+        categoryLabel.text = nil
+        titleLabel.text = nil
+        descriptionLabel.text = nil
+        imageView.image = nil
+    }
 }

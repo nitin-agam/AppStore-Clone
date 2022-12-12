@@ -42,4 +42,16 @@ class TodayAppGroupCell: TodayAppBaseCell {
             self.appSelectionHandler?(appId)
         }
     }
+    
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        cleanUp()
+    }
+    
+    private func cleanUp() {
+        self.item = nil
+        categoryLabel.text = nil
+        titleLabel.text = nil
+        controller.apps = nil
+    }
 }
