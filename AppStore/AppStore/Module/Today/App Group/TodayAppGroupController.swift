@@ -17,6 +17,7 @@ class TodayAppGroupController: BaseCollectionListController {
     var mode: DisplayMode
     var apps: [FeedResult]?
     private let cellSpacing: CGFloat = 16
+    var appSelectionHandler: ((_ appId: String) -> ())?
     
     private lazy var closeButton: UIButton = {
         let image = UIImage(systemName: "xmark.circle.fill", withConfiguration: UIImage.SymbolConfiguration(pointSize: 25, weight: .semibold, scale: .large))
@@ -47,8 +48,8 @@ class TodayAppGroupController: BaseCollectionListController {
         collectionView.register(cell: TodayAppGroupRowCell.self)
         
         if mode == .full {
-            view.addSubview(closeButton)
-            closeButton.makeConstraints(top: view.topAnchor, leading: nil, bottom: nil, trailing: view.trailingAnchor, padding: .init(top: 25, left: 0, bottom: 0, right: 10), size: .init(width: 50, height: 50))
+            let closeBarButton = UIBarButtonItem(customView: closeButton)
+            navigationItem.rightBarButtonItem = closeBarButton
         }
     }
     
@@ -89,5 +90,17 @@ extension TodayAppGroupController: UICollectionViewDelegateFlowLayout {
         let cell = collectionView.dequeueReusableCell(withClass: TodayAppGroupRowCell.self, for: indexPath)
         cell.configure(with: apps?[indexPath.row])
         return cell
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        guard let app = apps?[indexPath.row] else { return }
+        
+        if mode == .full {
+            let detailsController = AppDetailController(appId: app.id)
+            self.navigationController?.pushViewController(detailsController, animated: true)
+            return
+        }
+        
+        self.appSelectionHandler?(app.id)
     }
 }

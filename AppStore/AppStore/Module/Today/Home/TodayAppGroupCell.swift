@@ -13,6 +13,8 @@ class TodayAppGroupCell: BaseCollectionCell {
     private let titleLabel = UILabel(text: "", font: .bold(25))
     var topConstraint: NSLayoutConstraint?
     private let controller = TodayAppGroupController(mode: .small)
+    private var item: TodayItem?
+    var appSelectionHandler: ((_ appId: String) -> ())?
     
     
     override func initialSetup() {
@@ -31,12 +33,17 @@ class TodayAppGroupCell: BaseCollectionCell {
     }
     
     func configure(with item: TodayItem?) {
+        self.item = item
         guard let item = item else { return }
         categoryLabel.text = item.category
         titleLabel.text = item.title
         controller.apps = item.result
         controller.collectionView.reloadData()
         backgroundColor = item.backgroundColor
+        
+        controller.appSelectionHandler = { appId in
+            self.appSelectionHandler?(appId)
+        }
     }
 }
 

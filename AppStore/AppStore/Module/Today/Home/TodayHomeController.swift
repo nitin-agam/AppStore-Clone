@@ -31,6 +31,11 @@ class TodayHomeController: BaseCollectionListController {
         initialSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = true
+    }
+    
     private func initialSetup() {
         
         view.addSubview(activityIndicator)
@@ -78,6 +83,13 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         case .multiple:
             let cell = collectionView.dequeueReusableCell(withClass: TodayAppGroupCell.self, for: indexPath)
             cell.configure(with: item)
+            
+            cell.appSelectionHandler = { [weak self] appId in
+                guard let self = self else { return }
+                let detailsController = AppDetailController(appId: appId)
+                self.navigationController?.pushViewController(detailsController, animated: true)
+            }
+            
             return cell
         }
     }
@@ -94,8 +106,8 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         if item.itemType == .multiple {
             let appGroupController = TodayAppGroupController(mode: .full)
             appGroupController.apps = item.result
-            appGroupController.modalPresentationStyle = .fullScreen
-            present(appGroupController, animated: true)
+            let navigation = UINavigationController(rootViewController: appGroupController)
+            present(navigation, animated: true)
             return
         }
         

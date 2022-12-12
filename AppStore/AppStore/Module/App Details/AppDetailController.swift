@@ -29,6 +29,11 @@ class AppDetailController: BaseCollectionListController {
         initialSetup()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.isNavigationBarHidden = false
+    }
+    
     private func initialSetup() {
         collectionView.register(cell: AppDetailsInfoCell.self)
         collectionView.register(cell: AppScreenshotsPreviewCell.self)
