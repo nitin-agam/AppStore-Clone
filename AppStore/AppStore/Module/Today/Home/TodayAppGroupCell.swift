@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodayAppGroupCell: BaseCollectionCell {
+class TodayAppGroupCell: TodayAppBaseCell {
     
     private let categoryLabel = UILabel(text: "", font: .bold(20))
     private let titleLabel = UILabel(text: "", font: .bold(25))
@@ -17,12 +17,8 @@ class TodayAppGroupCell: BaseCollectionCell {
     var appSelectionHandler: ((_ appId: String) -> ())?
     
     
-    override func initialSetup() {
-        super.initialSetup()
-        
-        layer.cornerRadius = 16
-        
-        applyShadow()
+    override func initialUISetup() {
+        super.initialUISetup()
         
         let stackView = VerticalStack(arrangedSubviews: [categoryLabel, titleLabel, controller.view], spacing: 8)
         addSubview(stackView)
@@ -47,4 +43,3 @@ class TodayAppGroupCell: BaseCollectionCell {
         }
     }
 }
-

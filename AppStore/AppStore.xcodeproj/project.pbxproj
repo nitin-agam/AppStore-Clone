@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C757DB0329477FD000DEA463 /* TodayAppBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */; };
 		C7A501EE293BD83C002E41C7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501ED293BD83C002E41C7 /* TodayItem.swift */; };
 		C7A501F5293C9C24002E41C7 /* TodayAppGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */; };
 		C7A501F7293C9C42002E41C7 /* TodayAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */; };
@@ -72,6 +73,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppBaseCell.swift; sourceTree = "<group>"; };
 		C7A501ED293BD83C002E41C7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupCell.swift; sourceTree = "<group>"; };
 		C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppCell.swift; sourceTree = "<group>"; };
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				C7E0A9E82927B9B600FC7A38 /* TodayHomeController.swift */,
+				C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */,
 				C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */,
 				C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */,
 			);
@@ -474,6 +477,7 @@
 				C7E0AA182927F3D900FC7A38 /* Logger.swift in Sources */,
 				C7EAD41E292F950D009D5561 /* AppReviewListController.swift in Sources */,
 				C7A501F5293C9C24002E41C7 /* TodayAppGroupCell.swift in Sources */,
+				C757DB0329477FD000DEA463 /* TodayAppBaseCell.swift in Sources */,
 				C7EAD412292E03CD009D5561 /* AppDetailsInfoCell.swift in Sources */,
 				C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */,
 				C7EAD420292F9521009D5561 /* AppReviewCell.swift in Sources */,

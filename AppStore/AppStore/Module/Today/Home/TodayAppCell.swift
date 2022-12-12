@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TodayAppCell: BaseCollectionCell {
+class TodayAppCell: TodayAppBaseCell {
     
     private let categoryLabel = UILabel(text: "", font: .bold(20))
     private let titleLabel = UILabel(text: "", font: .bold(25))
@@ -16,12 +16,8 @@ class TodayAppCell: BaseCollectionCell {
     var topConstraint: NSLayoutConstraint?
     
     
-    override func initialSetup() {
-        super.initialSetup()
-        
-        layer.cornerRadius = 16
-        
-        applyShadow()
+    override func initialUISetup() {
+        super.initialUISetup()
         
         let imageContainerView = UIView()
         imageContainerView.addSubview(imageView)
