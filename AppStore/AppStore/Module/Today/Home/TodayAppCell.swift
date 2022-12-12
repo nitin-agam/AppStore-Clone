@@ -20,7 +20,8 @@ class TodayAppCell: BaseCollectionCell {
         super.initialSetup()
         
         layer.cornerRadius = 16
-        clipsToBounds = true
+        
+        applyShadow()
         
         let imageContainerView = UIView()
         imageContainerView.addSubview(imageView)

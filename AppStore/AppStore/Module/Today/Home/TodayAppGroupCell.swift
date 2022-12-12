@@ -21,7 +21,8 @@ class TodayAppGroupCell: BaseCollectionCell {
         super.initialSetup()
         
         layer.cornerRadius = 16
-        clipsToBounds = true
+        
+        applyShadow()
         
         let stackView = VerticalStack(arrangedSubviews: [categoryLabel, titleLabel, controller.view], spacing: 8)
         addSubview(stackView)
