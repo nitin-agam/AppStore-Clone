@@ -21,6 +21,7 @@ class TodayHomeController: BaseCollectionListController {
     private var startingFrame: CGRect?
     private var appFullScreenController: AppFullScreenController!
     private var anchoredConstraints: AnchoredConstraints?
+    private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
     
     override func viewDidLoad() {
@@ -35,9 +36,12 @@ class TodayHomeController: BaseCollectionListController {
     
     private func initialSetup() {
         
-        view.addSubview(activityIndicator)
+        view.addSubviews(activityIndicator, blurEffectView)
         
         activityIndicator.centerInSuperviewConstraints()
+        
+        blurEffectView.fillSuperviewConstraints()
+        blurEffectView.alpha = 0.0
         
         navigationController?.isNavigationBarHidden = true
         collectionView.register(cell: TodayAppCell.self)
@@ -130,6 +134,29 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
         appFullScreenController.dismissHandler = {
             self.endFullScreenAnimation()
         }
+        
+        // setup pan gesture
+        let panGesture = UIPanGestureRecognizer(target: self, action: #selector(handlePagGesture))
+        panGesture.delegate = self
+        appFullScreenController.view.addGestureRecognizer(panGesture)
+        
+        // add blur effect
+        
+        // fix conflicts with tableView scrolling
+    }
+    
+    @objc private func handlePagGesture(gesture: UIPanGestureRecognizer) {
+        
+        let translationY = gesture.translation(in: appFullScreenController.view).y
+        print(translationY)
+        
+        if gesture.state == .changed {
+            let scale = 1 - translationY / 1000
+            let transform = CGAffineTransform(scaleX: scale, y: scale)
+            appFullScreenController.view.transform = transform
+        } else if gesture.state == .ended {
+            self.endFullScreenAnimation()
+        }
     }
     
     private func setupStartingFrame(_ indexPath: IndexPath) {
@@ -174,6 +201,8 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut) {
             
+            self.blurEffectView.alpha = 1
+            
             self.anchoredConstraints?.top?.constant = 0
             self.anchoredConstraints?.leading?.constant = 0
             self.anchoredConstraints?.width?.constant = self.view.frame.width
@@ -195,6 +224,9 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
                        usingSpringWithDamping: 0.7,
                        initialSpringVelocity: 0.7,
                        options: .curveEaseOut) {
+            
+            self.blurEffectView.alpha = 0
+            self.appFullScreenController.view.transform = .identity
             
             guard let frame = self.startingFrame else { return }
             
@@ -218,5 +250,12 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
             self.appFullScreenController?.view?.removeFromSuperview()
             self.appFullScreenController?.removeFromParent()
         }
+    }
+}
+
+extension TodayHomeController: UIGestureRecognizerDelegate {
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        true
     }
 }
