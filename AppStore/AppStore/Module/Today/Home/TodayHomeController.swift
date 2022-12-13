@@ -22,6 +22,7 @@ class TodayHomeController: BaseCollectionListController {
     private var appFullScreenController: AppFullScreenController!
     private var anchoredConstraints: AnchoredConstraints?
     private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
+    private var fullScreenBeginOffset: CGFloat = 0
     
     
     override func viewDidLoad() {
@@ -147,15 +148,28 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
     
     @objc private func handlePagGesture(gesture: UIPanGestureRecognizer) {
         
-        let translationY = gesture.translation(in: appFullScreenController.view).y
-        print(translationY)
+        if gesture.state == .began {
+            fullScreenBeginOffset = appFullScreenController.tableView.contentOffset.y
+        }
         
+        if appFullScreenController.tableView.contentOffset.y > 0 {
+            return
+        }
+        
+        let translationY = gesture.translation(in: appFullScreenController.view).y
         if gesture.state == .changed {
-            let scale = 1 - translationY / 1000
-            let transform = CGAffineTransform(scaleX: scale, y: scale)
-            appFullScreenController.view.transform = transform
+            if translationY > 0 {
+                let trueOffset = translationY - fullScreenBeginOffset
+                var scale = 1 - trueOffset / 1000
+                scale = min(1, scale)
+                scale = max(0.5, scale)
+                let transform = CGAffineTransform(scaleX: scale, y: scale)
+                appFullScreenController.view.transform = transform
+            }
         } else if gesture.state == .ended {
-            self.endFullScreenAnimation()
+            if translationY > 0 {
+                self.endFullScreenAnimation()
+            }
         }
     }
     
@@ -226,7 +240,6 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
                        options: .curveEaseOut) {
             
             self.blurEffectView.alpha = 0
-            self.appFullScreenController.view.transform = .identity
             
             guard let frame = self.startingFrame else { return }
             
@@ -240,12 +253,16 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
             self.appFullScreenController?.tableView.contentOffset = .zero
             
             guard let cell = self.appFullScreenController?.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
+            cell.closeButton.alpha = 0
             cell.todayCollectionCell.topConstraint?.constant = 24
             cell.layoutIfNeeded()
+            
+            self.appFullScreenController.view.transform = .identity
             
             if let tabBarFrame = self.tabBarController?.tabBar.frame {
                 self.tabBarController?.tabBar.frame.origin.y = self.view.frame.size.height - tabBarFrame.height
             }
+            
         } completion: { _ in
             self.appFullScreenController?.view?.removeFromSuperview()
             self.appFullScreenController?.removeFromParent()

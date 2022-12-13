@@ -60,4 +60,11 @@ extension AppFullScreenController {
         let cell = tableView.dequeueReusableCell(withClass: AppFullScreenDescriptionCell.self, for: indexPath)
         return cell
     }
+    
+    override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if scrollView.contentOffset.y < 0 {
+            scrollView.isScrollEnabled = false
+            scrollView.isScrollEnabled = true
+        }
+    }
 }
