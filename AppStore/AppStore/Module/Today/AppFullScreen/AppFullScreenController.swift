@@ -51,7 +51,7 @@ class AppFullScreenController: UIViewController {
         
         closeButton.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 4), size: .init(width: 50, height: 50))
         
-        floatingView.makeConstraints(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: statusBarHeight, right: 16), size: .init(width: 0, height: 80))
+        floatingView.makeConstraints(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: -100, right: 16), size: .init(width: 0, height: 80))
         
         floatingView.configure(with: self.todayItem)
     }
@@ -91,6 +91,15 @@ extension AppFullScreenController: UITableViewDelegate, UITableViewDataSource {
         if scrollView.contentOffset.y < 0 {
             scrollView.isScrollEnabled = false
             scrollView.isScrollEnabled = true
+        }
+        
+        let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene
+        let statusBarHeight = window?.statusBarManager?.statusBarFrame.height ?? 0
+        let translationY = -90 - statusBarHeight
+        let transform = scrollView.contentOffset.y > 100 ? CGAffineTransform(translationX: 0, y: translationY) : .identity
+        
+        UIView.animate(withDuration: 0.7, delay: 0, usingSpringWithDamping: 0.7, initialSpringVelocity: 0.7, options: .curveEaseInOut) {
+            self.floatingView.transform = transform
         }
     }
 }
