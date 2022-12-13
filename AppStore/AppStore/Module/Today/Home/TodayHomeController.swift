@@ -253,7 +253,7 @@ extension TodayHomeController: UICollectionViewDelegateFlowLayout {
             self.appFullScreenController?.tableView.contentOffset = .zero
             
             guard let cell = self.appFullScreenController?.tableView.cellForRow(at: [0, 0]) as? AppFullScreenHeaderCell else { return }
-            cell.closeButton.alpha = 0
+            self.appFullScreenController.closeButton.alpha = 0
             cell.todayCollectionCell.topConstraint?.constant = 24
             cell.layoutIfNeeded()
             
