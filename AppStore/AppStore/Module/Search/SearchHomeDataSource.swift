@@ -49,19 +49,20 @@ class SearchHomeDataSource {
 
 struct SearchResult: Decodable {
     let resultCount: Int
-    let results: [AppData]
+    var results: [AppData]
 }
 
 struct AppData: Decodable {
-    let trackId: Int
-    let trackName: String
+    var trackId: Int?
+    var trackName: String?
     let primaryGenreName: String
-    let averageUserRating: Float
-    let screenshotUrls: [String]
+    var averageUserRating: Float?
+    var screenshotUrls: [String]?
     let artworkUrl100: String
     var formattedPrice: String?
     var description: String?
     var releaseNotes: String?
     var artistName: String?
     var version: String?
+    
 }

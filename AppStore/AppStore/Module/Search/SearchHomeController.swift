@@ -71,11 +71,11 @@ extension SearchHomeController: UICollectionViewDelegateFlowLayout {
     }
     
     override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        guard let feed = dataSource.object(at: indexPath) else {
+        guard let feed = dataSource.object(at: indexPath), let trackId = feed.trackId else {
             return
         }
         
-        let controller = AppDetailController(appId: String(feed.trackId))
+        let controller = AppDetailController(appId: String(trackId))
         self.navigationController?.pushViewController(controller, animated: true)
     }
 }

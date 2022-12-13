@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		C757DB0329477FD000DEA463 /* TodayAppBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */; };
 		C757DB052948753800DEA463 /* AppInfoFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB042948753800DEA463 /* AppInfoFloatingView.swift */; };
+		C757DB082948A5AB00DEA463 /* MusicHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB072948A5AB00DEA463 /* MusicHomeController.swift */; };
+		C757DB0A2948A71C00DEA463 /* MusicRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB092948A71C00DEA463 /* MusicRowCell.swift */; };
+		C757DB0C2948A7DF00DEA463 /* MusicHomeDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB0B2948A7DF00DEA463 /* MusicHomeDataSource.swift */; };
+		C757DB0E2948AB4A00DEA463 /* MusicListLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB0D2948AB4A00DEA463 /* MusicListLoadingView.swift */; };
 		C7A501EE293BD83C002E41C7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501ED293BD83C002E41C7 /* TodayItem.swift */; };
 		C7A501F5293C9C24002E41C7 /* TodayAppGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */; };
 		C7A501F7293C9C42002E41C7 /* TodayAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */; };
@@ -76,6 +80,10 @@
 /* Begin PBXFileReference section */
 		C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppBaseCell.swift; sourceTree = "<group>"; };
 		C757DB042948753800DEA463 /* AppInfoFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoFloatingView.swift; sourceTree = "<group>"; };
+		C757DB072948A5AB00DEA463 /* MusicHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHomeController.swift; sourceTree = "<group>"; };
+		C757DB092948A71C00DEA463 /* MusicRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicRowCell.swift; sourceTree = "<group>"; };
+		C757DB0B2948A7DF00DEA463 /* MusicHomeDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicHomeDataSource.swift; sourceTree = "<group>"; };
+		C757DB0D2948AB4A00DEA463 /* MusicListLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicListLoadingView.swift; sourceTree = "<group>"; };
 		C7A501ED293BD83C002E41C7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupCell.swift; sourceTree = "<group>"; };
 		C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppCell.swift; sourceTree = "<group>"; };
@@ -153,6 +161,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C757DB062948A58500DEA463 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				C757DB072948A5AB00DEA463 /* MusicHomeController.swift */,
+				C757DB092948A71C00DEA463 /* MusicRowCell.swift */,
+				C757DB0B2948A7DF00DEA463 /* MusicHomeDataSource.swift */,
+				C757DB0D2948AB4A00DEA463 /* MusicListLoadingView.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
 		C7A501EF293C999F002E41C7 /* Home */ = {
 			isa = PBXGroup;
 			children = (
@@ -249,6 +268,7 @@
 		C7E0A9E22927B91000FC7A38 /* Module */ = {
 			isa = PBXGroup;
 			children = (
+				C757DB062948A58500DEA463 /* Music */,
 				C7E0AA3B292CC0FF00FC7A38 /* App Details */,
 				C7E0A9E32927B91800FC7A38 /* Today */,
 				C7E0A9E42927B92100FC7A38 /* Apps */,
@@ -456,11 +476,13 @@
 				C7E0AA3A292CB9A600FC7A38 /* SnappingCollectionLayout.swift in Sources */,
 				C7E0A9EE2927B9FE00FC7A38 /* SearchHomeController.swift in Sources */,
 				C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */,
+				C757DB0C2948A7DF00DEA463 /* MusicHomeDataSource.swift in Sources */,
 				C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */,
 				C757DB052948753800DEA463 /* AppInfoFloatingView.swift in Sources */,
 				C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */,
 				C7E0AA012927E72F00FC7A38 /* UIFont+Extension.swift in Sources */,
 				C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */,
+				C757DB0A2948A71C00DEA463 /* MusicRowCell.swift in Sources */,
 				C7E0AA24292A636A00FC7A38 /* BaseCollectionListController.swift in Sources */,
 				C7E0AA2E292A84D000FC7A38 /* UIImageView+Extension.swift in Sources */,
 				C7E0AA1C2927F66800FC7A38 /* NetworkKeys.swift in Sources */,
@@ -482,12 +504,14 @@
 				C7EAD41E292F950D009D5561 /* AppReviewListController.swift in Sources */,
 				C7A501F5293C9C24002E41C7 /* TodayAppGroupCell.swift in Sources */,
 				C757DB0329477FD000DEA463 /* TodayAppBaseCell.swift in Sources */,
+				C757DB0E2948AB4A00DEA463 /* MusicListLoadingView.swift in Sources */,
 				C7EAD412292E03CD009D5561 /* AppDetailsInfoCell.swift in Sources */,
 				C7E0A9F02927C91100FC7A38 /* BaseCollectionCell.swift in Sources */,
 				C7EAD420292F9521009D5561 /* AppReviewCell.swift in Sources */,
 				C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */,
 				C7E0AA202927F7F100FC7A38 /* Data+Extension.swift in Sources */,
 				C7E0AA2A292A7A3E00FC7A38 /* AppsHorizontalListController.swift in Sources */,
+				C757DB082948A5AB00DEA463 /* MusicHomeController.swift in Sources */,
 				C7EAD41C292F94CE009D5561 /* AppReviewsCell.swift in Sources */,
 				C7EAD416292F6BBB009D5561 /* AppScreenshotsPreviewCell.swift in Sources */,
 				C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */,

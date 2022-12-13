@@ -118,22 +118,24 @@ class SearchCollectionCell: BaseCollectionCell {
             appIconImageView.image = nil
         }
         
-        if appObject.screenshotUrls.count > 0 {
-            if let screenshotUrl = URL(string: appObject.screenshotUrls[0]) {
+        guard let screenshotUrls = appObject.screenshotUrls else { return }
+        
+        if screenshotUrls.count > 0 {
+            if let screenshotUrl = URL(string: screenshotUrls[0]) {
                 screenshotImageView1.sd_setImage(with: screenshotUrl)
             } else {
                 screenshotImageView1.image = nil
             }
             
-            if appObject.screenshotUrls.count > 1 {
-                if let screenshotUrl = URL(string: appObject.screenshotUrls[1]) {
+            if screenshotUrls.count > 1 {
+                if let screenshotUrl = URL(string: screenshotUrls[1]) {
                     screenshotImageView2.sd_setImage(with: screenshotUrl)
                 } else {
                     screenshotImageView2.image = nil
                 }
                 
-                if appObject.screenshotUrls.count > 2 {
-                    if let screenshotUrl = URL(string: appObject.screenshotUrls[2]) {
+                if screenshotUrls.count > 2 {
+                    if let screenshotUrl = URL(string: screenshotUrls[2]) {
                         screenshotImageView3.sd_setImage(with: screenshotUrl)
                     } else {
                         screenshotImageView3.image = nil

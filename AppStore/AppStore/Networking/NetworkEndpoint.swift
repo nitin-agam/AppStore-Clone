@@ -14,6 +14,7 @@ enum NetworkEndpoint {
     case socialApps
     case lookup(appId: String)
     case reviews(appId: String)
+    case searchMusic(name: String, offset: Int)
 }
 
 extension NetworkEndpoint {
@@ -48,6 +49,12 @@ extension NetworkEndpoint {
             
         case .reviews(let appId):
             return .makeStatic("https://itunes.apple.com/rss/customerreviews/page=1/id=\(appId)/sortby=mostrecent/json?l=en&cc=us")
+            
+        case .searchMusic(let name, let offset):
+            let queryItems: [QueryItem] = [QueryItem(key: "term", value: name),
+                                           QueryItem(key: "offset", value: String(offset)),
+                                           QueryItem(key: "limit", value: "20")]
+            return .make(endpoint: "search", headers: nil, queries: queryItems, method: .GET, version: 0, params: nil)
         }
     }
 }
