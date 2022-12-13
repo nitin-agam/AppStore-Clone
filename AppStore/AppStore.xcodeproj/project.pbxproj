@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		C757DB0329477FD000DEA463 /* TodayAppBaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */; };
+		C757DB052948753800DEA463 /* AppInfoFloatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C757DB042948753800DEA463 /* AppInfoFloatingView.swift */; };
 		C7A501EE293BD83C002E41C7 /* TodayItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501ED293BD83C002E41C7 /* TodayItem.swift */; };
 		C7A501F5293C9C24002E41C7 /* TodayAppGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */; };
 		C7A501F7293C9C42002E41C7 /* TodayAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		C757DB0229477FD000DEA463 /* TodayAppBaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppBaseCell.swift; sourceTree = "<group>"; };
+		C757DB042948753800DEA463 /* AppInfoFloatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInfoFloatingView.swift; sourceTree = "<group>"; };
 		C7A501ED293BD83C002E41C7 /* TodayItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayItem.swift; sourceTree = "<group>"; };
 		C7A501F4293C9C24002E41C7 /* TodayAppGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupCell.swift; sourceTree = "<group>"; };
 		C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */,
 				C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */,
 				C7D3A8D22937A709002DBB5C /* AppFullScreenHeaderCell.swift */,
+				C757DB042948753800DEA463 /* AppInfoFloatingView.swift */,
 			);
 			path = AppFullScreen;
 			sourceTree = "<group>";
@@ -454,6 +457,7 @@
 				C7E0A9EE2927B9FE00FC7A38 /* SearchHomeController.swift in Sources */,
 				C7E0A9CD2927AF1600FC7A38 /* AppDelegate.swift in Sources */,
 				C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */,
+				C757DB052948753800DEA463 /* AppInfoFloatingView.swift in Sources */,
 				C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */,
 				C7E0AA012927E72F00FC7A38 /* UIFont+Extension.swift in Sources */,
 				C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */,

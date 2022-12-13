@@ -30,6 +30,7 @@ class AppFullScreenController: UIViewController {
         return button
     }()
     
+    private let floatingView = AppInfoFloatingView()
     var dismissHandler: (() -> ())?
     var todayItem: TodayItem?
     
@@ -39,7 +40,7 @@ class AppFullScreenController: UIViewController {
         view.clipsToBounds = true
         view.backgroundColor = .white
         
-        view.addSubviews(tableView, closeButton)
+        view.addSubviews(tableView, closeButton, floatingView)
         
         tableView.fillSuperviewConstraints()
         
@@ -49,6 +50,10 @@ class AppFullScreenController: UIViewController {
         tableView.contentInset = .init(top: 0, left: 0, bottom: statusBarHeight, right: 0)
         
         closeButton.makeConstraints(top: view.safeAreaLayoutGuide.topAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 0, bottom: 0, right: 4), size: .init(width: 50, height: 50))
+        
+        floatingView.makeConstraints(top: nil, leading: view.leadingAnchor, bottom: view.bottomAnchor, trailing: view.trailingAnchor, padding: .init(top: 0, left: 16, bottom: statusBarHeight, right: 16), size: .init(width: 0, height: 80))
+        
+        floatingView.configure(with: self.todayItem)
     }
     
     @objc private func handleCloseTapped() {
