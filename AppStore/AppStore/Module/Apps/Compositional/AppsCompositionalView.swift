@@ -19,7 +19,7 @@ class CompositionalController: UICollectionViewController {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3)))
                 item.contentInsets = .init(top: 0, leading: 0, bottom: 16, trailing: 16)
 
-                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(260))
+                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.87), heightDimension: .absolute(260))
 
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitems: [item])
 
@@ -44,7 +44,7 @@ class CompositionalController: UICollectionViewController {
         item.contentInsets.bottom = 16
         item.contentInsets.trailing = 16
         
-        let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(300))
+        let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.87), heightDimension: .absolute(300))
         
         let group = NSCollectionLayoutGroup.horizontal(layoutSize: layoutSize, subitems: [item])
         
@@ -58,24 +58,49 @@ class CompositionalController: UICollectionViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: .large)
+        indicator.tintColor = .darkGray
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
+    
+    private let dataSource = AppsHomeDataSource()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        initialSetup()
+        initialFetch()
+    }
+    
+    private func initialSetup() {
         collectionView.backgroundColor = .systemBackground
         navigationItem.title = "Apps"
         navigationController?.navigationBar.prefersLargeTitles = true
-        collectionView.register(cell: UICollectionViewCell.self)
         collectionView.register(cell: AppsHeaderCollectionCell.self)
         collectionView.register(cell: AppHorizontalRowCell.self)
         collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: CompositionalHeaderView.self)
     }
     
+    private func initialFetch() {
+        self.activityIndicator.startAnimating()
+        self.dataSource.fetchData() {
+            DispatchQueue.main.async {
+                self.activityIndicator.stopAnimating()
+                self.collectionView.reloadData()
+            }
+        }
+    }
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        4
+        1 + dataSource.sectionGroups.count
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        switch section {
+        case 0: return dataSource.socialApps.count
+        default: return dataSource.sectionGroups[section - 1].feed.results.count
+        }
     }
     
     override func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -83,17 +108,35 @@ class CompositionalController: UICollectionViewController {
         switch indexPath.section {
         case 0:
             let cell = collectionView.dequeueReusableCell(withClass: AppsHeaderCollectionCell.self, for: indexPath)
+            cell.configure(with: dataSource.socialApps[indexPath.item])
             return cell
             
         default:
             let cell = collectionView.dequeueReusableCell(withClass: AppHorizontalRowCell.self, for: indexPath)
+           cell.configure(with: dataSource.sectionGroups[indexPath.section - 1].feed.results[indexPath.item])
             return cell
         }
     }
     
     override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
         let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CompositionalHeaderView.self, for: indexPath)
+        let title = dataSource.sectionGroups[indexPath.section - 1].feed.title
+        headerView.sectionTitleLabel.text = title
         return headerView
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        var appId: String = ""
+        
+        if indexPath.section == 0 {
+            appId = dataSource.socialApps[indexPath.item].id
+        } else {
+            appId = dataSource.sectionGroups[indexPath.section - 1].feed.results[indexPath.item].id
+        }
+        
+        let controller = AppDetailController(appId: appId)
+        self.navigationController?.pushViewController(controller, animated: true)
     }
 }
 

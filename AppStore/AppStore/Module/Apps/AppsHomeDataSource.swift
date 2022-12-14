@@ -9,7 +9,7 @@ import Foundation
 
 class AppsHomeDataSource {
     
-    private var sectionGroups: [AppGroup] = []
+    private(set) var sectionGroups: [AppGroup] = []
     private(set) var socialApps: [SocialApp] = []
     
     func fetchData(_ completion: (() -> ())?) {
