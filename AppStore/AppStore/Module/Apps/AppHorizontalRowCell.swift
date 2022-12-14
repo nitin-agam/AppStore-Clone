@@ -19,8 +19,8 @@ class AppHorizontalRowCell: BaseCollectionCell {
     }()
     
     private let appIconImageView = UIImageView(cornerRadius: 10)
-    private let nameLabel = UILabel(text: "", font: .regular(16))
-    private let categoryLabel = UILabel(text: "", font: .regular(13), textColor: .secondaryLabel)
+    private let nameLabel = UILabel(text: "Name label", font: .regular(16))
+    private let categoryLabel = UILabel(text: "Category Label", font: .regular(13), textColor: .secondaryLabel)
     
     override func initialSetup() {
         super.initialSetup()

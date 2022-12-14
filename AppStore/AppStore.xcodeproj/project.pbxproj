@@ -18,6 +18,7 @@
 		C7A501F7293C9C42002E41C7 /* TodayAppCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */; };
 		C7A501F9293C9DBA002E41C7 /* TodayAppGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F8293C9DBA002E41C7 /* TodayAppGroupController.swift */; };
 		C7A501FD293CB313002E41C7 /* TodayAppGroupRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501FC293CB313002E41C7 /* TodayAppGroupRowCell.swift */; };
+		C7AEFE4E2949A4AF00DB9AC3 /* AppsCompositionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEFE4D2949A4AF00DB9AC3 /* AppsCompositionalView.swift */; };
 		C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */; };
 		C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */; };
 		C7D3A8CD2937959B002DBB5C /* AppFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */; };
@@ -89,6 +90,7 @@
 		C7A501F6293C9C42002E41C7 /* TodayAppCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppCell.swift; sourceTree = "<group>"; };
 		C7A501F8293C9DBA002E41C7 /* TodayAppGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupController.swift; sourceTree = "<group>"; };
 		C7A501FC293CB313002E41C7 /* TodayAppGroupRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupRowCell.swift; sourceTree = "<group>"; };
+		C7AEFE4D2949A4AF00DB9AC3 /* AppsCompositionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCompositionalView.swift; sourceTree = "<group>"; };
 		C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedsDataSource.swift; sourceTree = "<group>"; };
 		C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenController.swift; sourceTree = "<group>"; };
 		C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
@@ -212,6 +214,14 @@
 			path = "App Group";
 			sourceTree = "<group>";
 		};
+		C7AEFE4C2949A48C00DB9AC3 /* Compositional */ = {
+			isa = PBXGroup;
+			children = (
+				C7AEFE4D2949A4AF00DB9AC3 /* AppsCompositionalView.swift */,
+			);
+			path = Compositional;
+			sourceTree = "<group>";
+		};
 		C7E0A9C02927AF1600FC7A38 = {
 			isa = PBXGroup;
 			children = (
@@ -291,6 +301,7 @@
 		C7E0A9E42927B92100FC7A38 /* Apps */ = {
 			isa = PBXGroup;
 			children = (
+				C7AEFE4C2949A48C00DB9AC3 /* Compositional */,
 				C7E0A9EB2927B9DC00FC7A38 /* AppsHomeController.swift */,
 				C7E0AA25292A77A900FC7A38 /* AppsGroupCollectionCell.swift */,
 				C7E0AA29292A7A3E00FC7A38 /* AppsHorizontalListController.swift */,
@@ -463,6 +474,7 @@
 				C7E0AA2C292A7A8400FC7A38 /* AppHorizontalRowCell.swift in Sources */,
 				C7EAD418292F6C08009D5561 /* AppScreenshotsPreviewController.swift in Sources */,
 				C7A501F9293C9DBA002E41C7 /* TodayAppGroupController.swift in Sources */,
+				C7AEFE4E2949A4AF00DB9AC3 /* AppsCompositionalView.swift in Sources */,
 				C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */,
 				C7D3A8CD2937959B002DBB5C /* AppFullScreenDescriptionCell.swift in Sources */,
 				C7EAD41A292F6C4F009D5561 /* AppScreenshotPreviewCell.swift in Sources */,
