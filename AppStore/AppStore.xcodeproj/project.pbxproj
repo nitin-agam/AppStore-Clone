@@ -19,6 +19,7 @@
 		C7A501F9293C9DBA002E41C7 /* TodayAppGroupController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501F8293C9DBA002E41C7 /* TodayAppGroupController.swift */; };
 		C7A501FD293CB313002E41C7 /* TodayAppGroupRowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7A501FC293CB313002E41C7 /* TodayAppGroupRowCell.swift */; };
 		C7AEFE4E2949A4AF00DB9AC3 /* AppsCompositionalView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEFE4D2949A4AF00DB9AC3 /* AppsCompositionalView.swift */; };
+		C7AEFE502949B75C00DB9AC3 /* CompositionalHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AEFE4F2949B75C00DB9AC3 /* CompositionalHeaderView.swift */; };
 		C7D3A8C929377C23002DBB5C /* TodayFeedsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */; };
 		C7D3A8CB29378943002DBB5C /* AppFullScreenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */; };
 		C7D3A8CD2937959B002DBB5C /* AppFullScreenDescriptionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */; };
@@ -91,6 +92,7 @@
 		C7A501F8293C9DBA002E41C7 /* TodayAppGroupController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupController.swift; sourceTree = "<group>"; };
 		C7A501FC293CB313002E41C7 /* TodayAppGroupRowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayAppGroupRowCell.swift; sourceTree = "<group>"; };
 		C7AEFE4D2949A4AF00DB9AC3 /* AppsCompositionalView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppsCompositionalView.swift; sourceTree = "<group>"; };
+		C7AEFE4F2949B75C00DB9AC3 /* CompositionalHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CompositionalHeaderView.swift; sourceTree = "<group>"; };
 		C7D3A8C829377C23002DBB5C /* TodayFeedsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayFeedsDataSource.swift; sourceTree = "<group>"; };
 		C7D3A8CA29378943002DBB5C /* AppFullScreenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenController.swift; sourceTree = "<group>"; };
 		C7D3A8CC2937959B002DBB5C /* AppFullScreenDescriptionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppFullScreenDescriptionCell.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 			isa = PBXGroup;
 			children = (
 				C7AEFE4D2949A4AF00DB9AC3 /* AppsCompositionalView.swift */,
+				C7AEFE4F2949B75C00DB9AC3 /* CompositionalHeaderView.swift */,
 			);
 			path = Compositional;
 			sourceTree = "<group>";
@@ -531,6 +534,7 @@
 				C7E0AA36292B766F00FC7A38 /* AppsHomeDataSource.swift in Sources */,
 				C7E0A9E92927B9B600FC7A38 /* TodayHomeController.swift in Sources */,
 				C7A501F7293C9C42002E41C7 /* TodayAppCell.swift in Sources */,
+				C7AEFE502949B75C00DB9AC3 /* CompositionalHeaderView.swift in Sources */,
 				C7E0AA28292A787600FC7A38 /* UILabel+Extension.swift in Sources */,
 				C7E0AA102927F2F300FC7A38 /* NetworkReachability.swift in Sources */,
 			);

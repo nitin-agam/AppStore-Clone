@@ -19,13 +19,19 @@ class CompositionalController: UICollectionViewController {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3)))
                 item.contentInsets = .init(top: 0, leading: 0, bottom: 16, trailing: 16)
 
-                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(300))
+                let layoutSize = NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.8), heightDimension: .absolute(260))
 
                 let group = NSCollectionLayoutGroup.vertical(layoutSize: layoutSize, subitems: [item])
 
                 let section = NSCollectionLayoutSection(group: group)
                 section.orthogonalScrollingBehavior = .groupPaging
                 section.contentInsets.leading = 16
+                
+                let kind = UICollectionView.elementKindSectionHeader
+                section.boundarySupplementaryItems = [
+                    .init(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .absolute(40)), elementKind: kind, alignment: .topLeading)
+                ]
+                
                 return section
             }
         }
@@ -61,10 +67,11 @@ class CompositionalController: UICollectionViewController {
         collectionView.register(cell: UICollectionViewCell.self)
         collectionView.register(cell: AppsHeaderCollectionCell.self)
         collectionView.register(cell: AppHorizontalRowCell.self)
+        collectionView.register(supplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withClass: CompositionalHeaderView.self)
     }
     
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
-        2
+        4
     }
     
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -82,6 +89,11 @@ class CompositionalController: UICollectionViewController {
             let cell = collectionView.dequeueReusableCell(withClass: AppHorizontalRowCell.self, for: indexPath)
             return cell
         }
+    }
+    
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let headerView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withClass: CompositionalHeaderView.self, for: indexPath)
+        return headerView
     }
 }
 
