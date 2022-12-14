@@ -7,14 +7,14 @@
 
 import SwiftUI
 
-class CompositionalController: UICollectionViewController {
+class CompositionalAppsController: UICollectionViewController {
     
     init() {
         
         let layout = UICollectionViewCompositionalLayout { sectionNumber, _ in
             
             if sectionNumber == 0 {
-                return CompositionalController.topSection()
+                return CompositionalAppsController.topSection()
             } else {
                 let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(1), heightDimension: .fractionalHeight(1/3)))
                 item.contentInsets = .init(top: 0, leading: 0, bottom: 16, trailing: 16)
@@ -145,7 +145,7 @@ struct AppsView: UIViewControllerRepresentable {
     typealias UIViewControllerType = UIViewController
     
     func makeUIViewController(context: Context) -> UIViewController {
-        let controller = CompositionalController()
+        let controller = CompositionalAppsController()
         return UINavigationController(rootViewController: controller)
     }
     

@@ -14,7 +14,7 @@ class AppTabBarController: UITabBarController {
 
         let musicNavigation = constructNavigationController(controller: MusicHomeController(), title: "Music", imageName: "music.note.list")
         let todayNavigation = constructNavigationController(controller: TodayHomeController(), title: "Today", imageName: "calendar")
-        let appsNavigation = constructNavigationController(controller: AppsHomeController(), title: "Apps", imageName: "app.badge")
+        let appsNavigation = constructNavigationController(controller: CompositionalAppsController(), title: "Apps", imageName: "app.badge")
         let searchNavigation = constructNavigationController(controller: SearchHomeController(), title: "Search", imageName: "magnifyingglass")
         
         viewControllers = [musicNavigation, todayNavigation, appsNavigation, searchNavigation]
