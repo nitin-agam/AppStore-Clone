@@ -25,7 +25,7 @@ class BaseCollectionCell: UICollectionViewCell {
     func applyShadow() {
         layer.shadowOpacity = 0.1
         layer.shadowRadius = 6
-        layer.shadowOffset = .init(width: 0, height: 8)
-        layer.shadowColor = UIColor.gray.cgColor
+        layer.shadowOffset = .init(width: 0, height: 6)
+        layer.shadowColor = UIColor.systemGray.cgColor
     }
 }

@@ -20,11 +20,12 @@ class TodayAppCell: TodayAppBaseCell {
         super.initialUISetup()
         
         let imageContainerView = UIView()
+        imageContainerView.backgroundColor = .clear
         imageContainerView.addSubview(imageView)
         
         imageView.centerInSuperviewConstraints(.init(width: 200, height: 200))
         
-        let stackView = VerticalStack(arrangedSubviews: [categoryLabel, titleLabel, imageContainerView, descriptionLabel], spacing: 8)
+        let stackView = VerticalStack(arrangedSubviews: [categoryLabel, titleLabel, imageContainerView, descriptionLabel], spacing: 12)
         addSubview(stackView)
         
         stackView.makeConstraints(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 20, bottom: 20, right: 20))
@@ -39,7 +40,7 @@ class TodayAppCell: TodayAppBaseCell {
         titleLabel.text = item.title
         descriptionLabel.text = item.description
         imageView.image = UIImage(named: item.imageName ?? "")
-        backgroundColor = item.backgroundColor
+        backgroundColor = .secondarySystemBackground
     }
     
     override func prepareForReuse() {

@@ -9,19 +9,10 @@ import UIKit
 
 class AppInfoFloatingView: UIView {
     
-    private let downloadButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GET", for: .normal)
-        button.backgroundColor = .quaternaryLabel
-        button.titleLabel?.font = UIFont.semibold(16)
-        button.layer.cornerRadius = 16
-        return button
-    }()
-    
+    private let downloadButton = DownloadButton(type: .system)
     private let appIconImageView = UIImageView(cornerRadius: 10)
     private let nameLabel = UILabel(text: "", font: .bold(18))
     private let categoryLabel = UILabel(text: "", font: .regular(15), textColor: .secondaryLabel)
-    
     private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
     
     override init(frame: CGRect) {

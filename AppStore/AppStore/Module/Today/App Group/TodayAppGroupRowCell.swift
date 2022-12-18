@@ -9,15 +9,7 @@ import UIKit
 
 class TodayAppGroupRowCell: BaseCollectionCell {
     
-    private let downloadButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GET", for: .normal)
-        button.backgroundColor = .quaternaryLabel
-        button.titleLabel?.font = UIFont.semibold(16)
-        button.layer.cornerRadius = 16
-        return button
-    }()
-    
+    private let downloadButton = DownloadButton(type: .system)
     private let appIconImageView = UIImageView(cornerRadius: 10)
     private let nameLabel = UILabel(text: "", font: .regular(16))
     private let categoryLabel = UILabel(text: "", font: .regular(13), textColor: .secondaryLabel)
