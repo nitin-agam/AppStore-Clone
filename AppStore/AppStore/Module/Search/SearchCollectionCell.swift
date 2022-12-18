@@ -13,8 +13,11 @@ class SearchCollectionCell: BaseCollectionCell {
     private let appIconImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.layer.cornerRadius = 10
+        imageView.layer.cornerRadius = 12
         imageView.clipsToBounds = true
+        imageView.layer.borderWidth = 0.6
+        imageView.layer.borderWidth = 0.7
+        imageView.layer.borderColor = UIColor(white: 0.8, alpha: 0.8).cgColor
         return imageView
     }()
     
@@ -27,14 +30,14 @@ class SearchCollectionCell: BaseCollectionCell {
     
     private let categoryLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.regular(14)
+        label.font = UIFont.regular(13)
         label.textColor = .secondaryLabel
         return label
     }()
     
     private let ratingLabel: UILabel = {
         let label = UILabel()
-        label.font = UIFont.regular(14)
+        label.font = UIFont.regular(13)
         label.textColor = .tertiaryLabel
         return label
     }()
@@ -42,7 +45,7 @@ class SearchCollectionCell: BaseCollectionCell {
     private let downloadButton: UIButton = {
         let button = UIButton(type: .system)
         button.setTitle("GET", for: .normal)
-        button.backgroundColor = .quaternaryLabel
+        button.backgroundColor = UIColor(white: 0.5, alpha: 0.15)
         button.titleLabel?.font = UIFont.semibold(16)
         button.layer.cornerRadius = 16
         return button
@@ -110,7 +113,9 @@ class SearchCollectionCell: BaseCollectionCell {
         
         nameLabel.text = appObject.trackName
         categoryLabel.text = appObject.primaryGenreName
-        ratingLabel.text = "Ratings: \(appObject.averageUserRating)"
+        
+        let roundedRatingValue = String(format:"%.1f", appObject.averageUserRating ?? 0)
+        ratingLabel.text = "Ratings: \(roundedRatingValue)"
         
         if let appIconUrl = URL(string: appObject.artworkUrl100) {
             appIconImageView.sd_setImage(with: appIconUrl)

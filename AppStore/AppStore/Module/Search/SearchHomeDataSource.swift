@@ -64,5 +64,4 @@ struct AppData: Decodable {
     var releaseNotes: String?
     var artistName: String?
     var version: String?
-    
 }

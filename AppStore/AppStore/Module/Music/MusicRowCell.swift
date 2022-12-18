@@ -10,8 +10,8 @@ import UIKit
 class MusicRowCell: BaseCollectionCell {
     
     private let iconImageView = UIImageView(cornerRadius: 10)
-    private let nameLabel = UILabel(text: "Music Name", font: .bold(18))
-    private let categoryLabel = UILabel(text: "Music Category", font: .regular(16), textColor: .black, lines: 2)
+    private let nameLabel = UILabel(text: "", font: .bold(18))
+    private let categoryLabel = UILabel(text: "", font: .regular(16), textColor: .secondaryLabel, lines: 2)
     
     override func initialSetup() {
         super.initialSetup()

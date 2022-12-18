@@ -19,8 +19,8 @@ class BaseCollectionListController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .white
-        collectionView.backgroundColor = .white
+        view.backgroundColor = .systemBackground
+        collectionView.backgroundColor = .systemBackground
         collectionView.showsHorizontalScrollIndicator = false
         collectionView.showsVerticalScrollIndicator = false
     }

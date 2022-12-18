@@ -33,7 +33,7 @@ class MusicHomeDataSource {
         }
     }
     
-    func initialFetch(searchText: String, _ completion: ((_ isSuccess: Bool) -> ())?) {
+    func search(searchText: String, newSearch: Bool, _ completion: ((_ isSuccess: Bool) -> ())?) {
         self.fetchRequest(searchText: searchText) { result in
             
             guard let result = result else {
@@ -41,8 +41,9 @@ class MusicHomeDataSource {
                 return
             }
             
-            if let searchResultObject = self.searchResult, searchResultObject.results.isEmpty == false {
-                
+            if newSearch == false,
+                let searchResultObject = self.searchResult,
+               searchResultObject.results.isEmpty == false {
                 if result.results.isEmpty {
                     self.hasMoreFeed = false
                 } else {
