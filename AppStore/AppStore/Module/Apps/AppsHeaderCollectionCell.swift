@@ -9,8 +9,8 @@ import UIKit
 
 class AppsHeaderCollectionCell: BaseCollectionCell {
     
-    private let titleLabel = UILabel(text: "title label", font: .regular(13), textColor: .blue)
-    private let subtitleLabel = UILabel(text: "subtitle label", font: .regular(20))
+    private let titleLabel = UILabel(text: "", font: .medium(15), textColor: .link)
+    private let subtitleLabel = UILabel(text: "", font: .regular(20))
     
     private let contentImageView: UIImageView = {
         let imageView = UIImageView()

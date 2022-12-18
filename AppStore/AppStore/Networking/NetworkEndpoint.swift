@@ -36,10 +36,10 @@ extension NetworkEndpoint {
             return .make(endpoint: "search", headers: nil, queries: queryItems, method: .GET, version: 0, params: nil)
             
         case .appsFree:
-            return .makeStatic("https://rss.applemarketingtools.com/api/v2/in/apps/top-free/50/apps.json")
+            return .makeStatic("https://rss.applemarketingtools.com/api/v2/us/apps/top-free/50/apps.json")
             
         case .appsPaid:
-            return .makeStatic("https://rss.applemarketingtools.com/api/v2/in/apps/top-paid/50/apps.json")
+            return .makeStatic("https://rss.applemarketingtools.com/api/v2/us/apps/top-paid/50/apps.json")
             
         case .socialApps:
             return .makeStatic("https://api.letsbuildthatapp.com/appstore/social")

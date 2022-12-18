@@ -9,16 +9,8 @@ import UIKit
 
 class AppHorizontalRowCell: BaseCollectionCell {
     
-    private let downloadButton: UIButton = {
-        let button = UIButton(type: .system)
-        button.setTitle("GET", for: .normal)
-        button.backgroundColor = .quaternaryLabel
-        button.titleLabel?.font = UIFont.semibold(16)
-        button.layer.cornerRadius = 16
-        return button
-    }()
-    
-    private let appIconImageView = UIImageView(cornerRadius: 10)
+    private let downloadButton = DownloadButton(type: .system)
+    private let appIconImageView = UIImageView(cornerRadius: 12)
     private let nameLabel = UILabel(text: "Name label", font: .regular(16))
     private let categoryLabel = UILabel(text: "Category Label", font: .regular(13), textColor: .secondaryLabel)
     
@@ -27,7 +19,9 @@ class AppHorizontalRowCell: BaseCollectionCell {
         
         nameLabel.numberOfLines = 2
         
-        appIconImageView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        appIconImageView.backgroundColor = UIColor(white: 0.8, alpha: 0.8)
+        appIconImageView.layer.borderWidth = 0.7
+        appIconImageView.layer.borderColor = UIColor(white: 0.8, alpha: 0.8).cgColor
         
         
         let labelsStackView = VerticalStack(arrangedSubviews: [nameLabel, categoryLabel], spacing: 2)

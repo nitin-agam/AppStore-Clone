@@ -9,7 +9,7 @@ import UIKit
 
 class CompositionalHeaderView: UICollectionReusableView {
     
-    let sectionTitleLabel = UILabel(text: "Header Title", font: .bold(24))
+    let sectionTitleLabel = UILabel(text: "", font: .bold(24))
     
     override init(frame: CGRect) {
         super.init(frame: frame)
