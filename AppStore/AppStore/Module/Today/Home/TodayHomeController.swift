@@ -47,7 +47,6 @@ class TodayHomeController: BaseCollectionListController {
         navigationController?.isNavigationBarHidden = true
         collectionView.register(cell: TodayAppCell.self)
         collectionView.register(cell: TodayAppGroupCell.self)
-        collectionView.backgroundColor = UIColor.systemGray6
         
         dataSource.fetchData {
             DispatchQueue.main.async {

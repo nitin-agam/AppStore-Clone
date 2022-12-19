@@ -1,8 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "undraw_Traveling_re_wf1f.png",
-      "idiom" : "universal"
+      "filename" : "holiday.jpg",
+      "idiom" : "universal",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x"
     }
   ],
   "info" : {

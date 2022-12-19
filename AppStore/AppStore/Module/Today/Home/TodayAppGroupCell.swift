@@ -9,7 +9,7 @@ import UIKit
 
 class TodayAppGroupCell: TodayAppBaseCell {
     
-    private let categoryLabel = UILabel(text: "", font: .medium(17), textColor: .secondaryLabel)
+    private let categoryLabel = UILabel(text: "", font: .medium(17), textColor: .systemGray)
     private let titleLabel = UILabel(text: "", font: .bold(25))
     var topConstraint: NSLayoutConstraint?
     private let controller = TodayAppGroupController(mode: .small)
@@ -27,6 +27,12 @@ class TodayAppGroupCell: TodayAppBaseCell {
         
         self.topConstraint = stackView.topAnchor.constraint(equalTo: topAnchor, constant: 24)
         self.topConstraint?.isActive = true
+        
+        let backColor = UIColor.secondarySystemBackground
+        
+        backgroundColor = backColor
+        controller.view.backgroundColor = backColor
+        controller.collectionView.backgroundColor = backColor
     }
     
     func configure(with item: TodayItem?) {
@@ -36,7 +42,6 @@ class TodayAppGroupCell: TodayAppBaseCell {
         titleLabel.text = item.title
         controller.apps = item.result
         controller.collectionView.reloadData()
-        backgroundColor = .secondarySystemBackground
         
         controller.appSelectionHandler = { appId in
             self.appSelectionHandler?(appId)

@@ -13,7 +13,7 @@ class AppDetailsInfoCell: BaseCollectionCell {
         let button = UIButton(type: .system)
         button.backgroundColor = UIColor.link
         button.titleLabel?.font = UIFont.semibold(16)
-        button.layer.cornerRadius = 16
+        button.layer.cornerRadius = 15
         button.setTitleColor(.white, for: .normal)
         return button
     }()
@@ -29,12 +29,11 @@ class AppDetailsInfoCell: BaseCollectionCell {
         super.initialSetup()
         
         appIconImageView.equalSizeConstraints(100)
-        downloadButton.sizeConstraints(width: 100, height: 32)
         
         appIconImageView.layer.borderWidth = 0.6
         appIconImageView.layer.borderColor = UIColor(white: 0.8, alpha: 0.8).cgColor
         
-        let labelsStackView = VerticalStack(arrangedSubviews: [nameLabel, artistNameLabel, UIView(), downloadButton], spacing: 4)
+        let labelsStackView = VerticalStack(arrangedSubviews: [nameLabel, artistNameLabel, UIView(),  UIStackView(arrangedSubviews: [downloadButton, UIView()])], spacing: 4)
         
         let basicInfoStackView = UIStackView(arrangedSubviews: [appIconImageView, labelsStackView])
         basicInfoStackView.spacing = 12
@@ -46,6 +45,9 @@ class AppDetailsInfoCell: BaseCollectionCell {
         addSubviews(contentStack)
         
         contentStack.fillSuperviewConstraints(.init(top: 20, left: 16, bottom: 20, right: 16))
+        
+        downloadButton.heightConstraints(30)
+        downloadButton.widthConstraints(75)
     }
     
     func configure(with appData: AppData?) {
@@ -54,7 +56,7 @@ class AppDetailsInfoCell: BaseCollectionCell {
         nameLabel.text = app.trackName
         artistNameLabel.text = app.artistName
         downloadButton.setTitle(app.formattedPrice, for: .normal)
-        versionLabel.text = "Version \(app.version)"
+        versionLabel.text = "Version \(app.version ?? "")"
         descriptionLabel.text = app.releaseNotes
         
         if let appIconUrl = URL(string: app.artworkUrl100) {

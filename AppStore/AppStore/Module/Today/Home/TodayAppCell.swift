@@ -9,23 +9,27 @@ import UIKit
 
 class TodayAppCell: TodayAppBaseCell {
     
-    private let categoryLabel = UILabel(text: "", font: .bold(20))
-    private let titleLabel = UILabel(text: "", font: .bold(25))
+    private let categoryLabel = UILabel(text: "", font: .medium(17), textColor: .systemGray)
+    private let titleLabel = UILabel(text: "", font: .bold(25), textColor: .white)
     private let imageView = UIImageView(cornerRadius: 0, mode: .scaleAspectFill)
-    private let descriptionLabel = UILabel(text: "", font: .regular(16), lines: 3)
+    private let descriptionLabel = UILabel(text: "", font: .medium(16), textColor: .white, lines: 2)
     var topConstraint: NSLayoutConstraint?
+    let imageContainerView = UIView()
     
     
     override func initialUISetup() {
         super.initialUISetup()
         
-        let imageContainerView = UIView()
         imageContainerView.backgroundColor = .clear
+        imageContainerView.clipsToBounds = true
+        imageContainerView.layer.cornerRadius = 16
         imageContainerView.addSubview(imageView)
+        imageView.fillSuperviewConstraints()
         
-        imageView.centerInSuperviewConstraints(.init(width: 200, height: 200))
+        addSubview(imageContainerView)
+        imageContainerView.fillSuperviewConstraints()
         
-        let stackView = VerticalStack(arrangedSubviews: [categoryLabel, titleLabel, imageContainerView, descriptionLabel], spacing: 12)
+        let stackView = VerticalStack(arrangedSubviews: [categoryLabel, titleLabel, UIView(), descriptionLabel], spacing: 12)
         addSubview(stackView)
         
         stackView.makeConstraints(top: nil, leading: leadingAnchor, bottom: bottomAnchor, trailing: trailingAnchor, padding: .init(top: 0, left: 20, bottom: 20, right: 20))
@@ -40,7 +44,7 @@ class TodayAppCell: TodayAppBaseCell {
         titleLabel.text = item.title
         descriptionLabel.text = item.description
         imageView.image = UIImage(named: item.imageName ?? "")
-        backgroundColor = .secondarySystemBackground
+        backgroundColor = .tertiarySystemBackground
     }
     
     override func prepareForReuse() {

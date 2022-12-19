@@ -10,7 +10,7 @@ import UIKit
 class TodayAppGroupRowCell: BaseCollectionCell {
     
     private let downloadButton = DownloadButton(type: .system)
-    private let appIconImageView = UIImageView(cornerRadius: 10)
+    private let appIconImageView = UIImageView(cornerRadius: 12)
     private let nameLabel = UILabel(text: "", font: .regular(16))
     private let categoryLabel = UILabel(text: "", font: .regular(13), textColor: .secondaryLabel)
     
@@ -19,7 +19,11 @@ class TodayAppGroupRowCell: BaseCollectionCell {
         
         nameLabel.numberOfLines = 2
         
-        appIconImageView.backgroundColor = UIColor(white: 0.5, alpha: 0.5)
+        appIconImageView.backgroundColor = UIColor(white: 0.8, alpha: 0.8)
+        appIconImageView.contentMode = .scaleAspectFit
+        appIconImageView.clipsToBounds = true
+        appIconImageView.layer.borderWidth = 0.7
+        appIconImageView.layer.borderColor = UIColor(white: 0.8, alpha: 0.8).cgColor
         
         
         let labelsStackView = VerticalStack(arrangedSubviews: [nameLabel, categoryLabel], spacing: 2)

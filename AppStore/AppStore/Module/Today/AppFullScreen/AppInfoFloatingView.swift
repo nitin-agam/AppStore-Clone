@@ -10,7 +10,7 @@ import UIKit
 class AppInfoFloatingView: UIView {
     
     private let downloadButton = DownloadButton(type: .system)
-    private let appIconImageView = UIImageView(cornerRadius: 10)
+    private let appIconImageView = UIImageView(cornerRadius: 10, mode: .scaleAspectFill)
     private let nameLabel = UILabel(text: "", font: .bold(18))
     private let categoryLabel = UILabel(text: "", font: .regular(15), textColor: .secondaryLabel)
     private let blurEffectView = UIVisualEffectView(effect: UIBlurEffect(style: .regular))
@@ -26,7 +26,6 @@ class AppInfoFloatingView: UIView {
     
     private func initialSetup() {
         
-      //  backgroundColor = .red
         layer.cornerRadius = 16
         clipsToBounds = true
         

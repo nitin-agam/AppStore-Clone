@@ -57,7 +57,7 @@ class TodayFeedsDataSource {
         
         dispatchGroup.notify(queue: .main) {
             
-            let firstItem = TodayItem(category: "LIFE HACK", title: "Utilizing your Time", imageName: "garden", description: "All the tools and apps you need to intelligently organize your life the right way.", backgroundColor: .white, result: nil, itemType: .single)
+            let firstItem = TodayItem(category: "LIFE HACK", title: "Stay healthy all the time", imageName: "health", description: "All the protiens and vitamins you need to live healthy in right way.", backgroundColor: .white, result: nil, itemType: .single)
             
             let topFreeItem = TodayItem(category: "DAILY LIST", title: freeAppGroup?.feed.title ?? "", imageName: nil, description: nil, backgroundColor: .white, result: freeAppGroup?.feed.results, itemType: .multiple)
             

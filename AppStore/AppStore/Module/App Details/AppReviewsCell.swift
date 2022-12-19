@@ -26,6 +26,9 @@ class AppReviewsCell: BaseCollectionCell {
     func configure(reviews: Reviews?) {
         guard let reviewObject = reviews else { return }
         controller.appReviews = reviewObject.feed.entry
-        controller.collectionView.reloadData()
+        
+        DispatchQueue.main.async {
+            self.controller.collectionView.reloadData()
+        }
     }
 }

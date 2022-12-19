@@ -44,7 +44,6 @@ class AppFullScreenController: UIViewController {
         
         tableView.fillSuperviewConstraints()
         
-        #warning("update this code as it's will be deprecated soon.")
         let window = UIApplication.shared.windows.filter {$0.isKeyWindow}.first?.windowScene
         let statusBarHeight = window?.statusBarManager?.statusBarFrame.height ?? 0
         tableView.contentInset = .init(top: 0, left: 0, bottom: statusBarHeight, right: 0)
