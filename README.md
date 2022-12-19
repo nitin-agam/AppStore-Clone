@@ -47,13 +47,13 @@ A small application created in UIKit using Xcode 14 is shown here. In this app, 
 - How to fetch data from multiple requests using DispatchGroup?
 - How to use UIStackView to build complete UIs?
 - How to search your query using UISearchController after some delay?
-- How to present view controller with custom animation?
+- How to present a view controller with custom animation?
 - How to implement drag & drop to dismiss a controller?
-- How to show and hide floating view on scroll up and down?
-- How to implement infinte scrolling to fetch more data?
-- How to manage your logs properly? 
-- How to put constraints programatically without any library? 
-- How to make all UIs programatically in an app? 
+- How to show and hide floating view on scrolling up and down?
+- How to implement infinite scrolling to fetch more data?
+- How to manage your logs properly?
+- How to put constraints programmatically without any library?
+- How to make all UIs programmatically in an app?
 
 and many other things...
 
