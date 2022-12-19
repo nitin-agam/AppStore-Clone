@@ -54,6 +54,8 @@ A small application created in UIKit using Xcode 14 is shown here. In this app, 
 - How to show and hide floating view on scroll up and down?
 - How to implement infinte scrolling to fetch more data?
 - How to manage your logs properly? 
+- How to put constraints programatically without any library? 
+- How to make all UIs programatically in an app? 
 
 and many other things...
 
