@@ -37,7 +37,6 @@
 		C7E0A9F22927C95500FC7A38 /* SearchCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9F12927C95500FC7A38 /* SearchCollectionCell.swift */; };
 		C7E0A9F52927CA8100FC7A38 /* UICollectionViewCell+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9F42927CA8100FC7A38 /* UICollectionViewCell+Extension.swift */; };
 		C7E0A9F72927CFEE00FC7A38 /* UICollectionView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9F62927CFEE00FC7A38 /* UICollectionView+Extension.swift */; };
-		C7E0A9FA2927D34700FC7A38 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = C7E0A9F92927D34700FC7A38 /* SnapKit */; };
 		C7E0A9FC2927D37F00FC7A38 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9FB2927D37F00FC7A38 /* UIView+Extension.swift */; };
 		C7E0A9FF2927DD1A00FC7A38 /* VerticalStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0A9FE2927DD1A00FC7A38 /* VerticalStack.swift */; };
 		C7E0AA012927E72F00FC7A38 /* UIFont+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7E0AA002927E72F00FC7A38 /* UIFont+Extension.swift */; };
@@ -150,7 +149,6 @@
 				C7E0AA042927ED9900FC7A38 /* SDWebImage in Frameworks */,
 				C7E0AA0E2927F2CB00FC7A38 /* Reachability in Frameworks */,
 				C7E0AA152927F3A900FC7A38 /* CocoaLumberjackSwift in Frameworks */,
-				C7E0A9FA2927D34700FC7A38 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -388,7 +386,6 @@
 			);
 			name = AppStore;
 			packageProductDependencies = (
-				C7E0A9F92927D34700FC7A38 /* SnapKit */,
 				C7E0AA032927ED9900FC7A38 /* SDWebImage */,
 				C7E0AA0D2927F2CB00FC7A38 /* Reachability */,
 				C7E0AA142927F3A900FC7A38 /* CocoaLumberjackSwift */,
@@ -422,7 +419,6 @@
 			);
 			mainGroup = C7E0A9C02927AF1600FC7A38;
 			packageReferences = (
-				C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */,
 				C7E0AA022927ED9900FC7A38 /* XCRemoteSwiftPackageReference "SDWebImage" */,
 				C7E0AA0C2927F2CB00FC7A38 /* XCRemoteSwiftPackageReference "Reachability" */,
 				C7E0AA132927F3A900FC7A38 /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
@@ -666,7 +662,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nitin.demo.AppStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nitina.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -696,7 +692,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.nitin.demo.AppStore;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nitina.test;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -728,14 +724,6 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
-			requirement = {
-				branch = develop;
-				kind = branch;
-			};
-		};
 		C7E0AA022927ED9900FC7A38 /* XCRemoteSwiftPackageReference "SDWebImage" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SDWebImage/SDWebImage.git";
@@ -763,11 +751,6 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
-		C7E0A9F92927D34700FC7A38 /* SnapKit */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = C7E0A9F82927D34700FC7A38 /* XCRemoteSwiftPackageReference "SnapKit" */;
-			productName = SnapKit;
-		};
 		C7E0AA032927ED9900FC7A38 /* SDWebImage */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = C7E0AA022927ED9900FC7A38 /* XCRemoteSwiftPackageReference "SDWebImage" */;
